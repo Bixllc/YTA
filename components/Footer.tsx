@@ -53,8 +53,8 @@ export default function Footer() {
             {/* Logo mark (text-based for dark bg) */}
             <div className="flex items-center gap-3 mb-4">
               <svg viewBox="0 0 48 48" className="w-10 h-10" fill="none">
-                <polygon points="24,3 45,42 3,42" stroke="#C41E3A" strokeWidth="3" fill="none" />
-                <polygon points="24,36 13,14 35,14" fill="#C41E3A" />
+                <polygon points="24,3 45,42 3,42" stroke="#C8102E" strokeWidth="3" fill="none" />
+                <polygon points="24,36 13,14 35,14" fill="#C8102E" />
               </svg>
               <div>
                 <p className="text-white font-extrabold text-sm tracking-widest leading-tight">
@@ -123,7 +123,7 @@ export default function Footer() {
           </p>
           <p className="text-gray-500 text-xs">
             Built with passion. Driven by creators.{" "}
-            <span className="text-[#C41E3A]">♥</span>
+            <span className="text-[#C8102E]">♥</span>
           </p>
         </div>
       </div>

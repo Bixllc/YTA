@@ -57,7 +57,7 @@ function CreatorCard({ creator }: { creator: typeof CREATORS[0] }) {
         <div>
           <div className="flex items-center gap-3 mb-1">
             <h3 className="text-white text-2xl font-bold">{creator.name}</h3>
-            <div className="w-5 h-5 rounded-full bg-[#C41E3A] flex items-center justify-center flex-shrink-0">
+            <div className="w-5 h-5 rounded-full bg-[#C8102E] flex items-center justify-center flex-shrink-0">
               <svg viewBox="0 0 24 24" fill="white" className="w-3 h-3">
                 <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
               </svg>
@@ -71,7 +71,7 @@ function CreatorCard({ creator }: { creator: typeof CREATORS[0] }) {
           {creator.stats.map((stat, i) => (
             <div key={stat.label} className="flex items-center">
               <div className="text-center px-4 first:pl-0">
-                <p className="text-[#C41E3A] text-xl font-bold">{stat.value}</p>
+                <p className="text-[#C8102E] text-xl font-bold">{stat.value}</p>
                 <p className="text-gray-500 text-xs uppercase tracking-wide mt-0.5">{stat.label}</p>
               </div>
               {i < creator.stats.length - 1 && <div className="w-px h-8 bg-white/10" />}
@@ -88,11 +88,11 @@ export default function RosterSection() {
     <section id="roster" className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center mb-16">
-          <p className="text-[#C41E3A] text-xs font-bold tracking-[0.25em] uppercase mb-6">OUR ROSTER</p>
+          <p className="text-[#C8102E] text-xs font-bold tracking-[0.25em] uppercase mb-6">OUR ROSTER</p>
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
             Creators. Innovators.
             <br />
-            Trendsetters. <span className="text-[#C41E3A]">Represented.</span>
+            Trendsetters. <span className="text-[#C8102E]">Represented.</span>
           </h2>
           <p className="text-gray-500 text-base max-w-2xl mx-auto leading-relaxed">
             We represent a select group of creators who are building brands, shaping culture, and inspiring millions across platforms.
@@ -105,7 +105,7 @@ export default function RosterSection() {
         </div>
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mt-16 pt-8 border-t border-gray-100">
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-full bg-[#C41E3A] flex items-center justify-center flex-shrink-0">
+            <div className="w-12 h-12 rounded-full bg-[#C8102E] flex items-center justify-center flex-shrink-0">
               <Star className="w-5 h-5 text-white" fill="white" />
             </div>
             <div>

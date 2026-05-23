@@ -76,17 +76,17 @@ export default function AboutSection() {
       <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* Left: Text */}
         <div>
-          <p className="text-[#C41E3A] text-xs font-bold tracking-[0.25em] uppercase mb-6">
+          <p className="text-[#C8102E] text-xs font-bold tracking-[0.25em] uppercase mb-6">
             ABOUT YOUNG TALENT AGENCY
           </p>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
             We&apos;re in your corner.
             <br />
-            <span className="text-[#C41E3A]">Always.</span>
+            <span className="text-[#C8102E]">Always.</span>
           </h2>
 
-          <div className="w-10 h-[3px] bg-[#C41E3A] mt-5 mb-8" />
+          <div className="w-10 h-[3px] bg-[#C8102E] mt-5 mb-8" />
 
           <div className="space-y-5 text-gray-600 text-base leading-relaxed max-w-lg">
             <p>

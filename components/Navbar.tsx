@@ -59,7 +59,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 bg-[#C41E3A] hover:bg-[#a01830] text-white text-xs font-bold tracking-widest uppercase px-5 py-3 rounded-lg transition-colors"
+              className="inline-flex items-center gap-1.5 bg-[#C8102E] hover:bg-[#a01830] text-white text-xs font-bold tracking-widest uppercase px-5 py-3 rounded-lg transition-colors"
             >
               CONTACT US
               <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
@@ -92,7 +92,7 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={() => setMobileOpen(false)}
-              className="inline-flex items-center gap-1.5 bg-[#C41E3A] hover:bg-[#a01830] text-white text-xs font-bold tracking-widest uppercase px-5 py-3 rounded-lg transition-colors w-fit"
+              className="inline-flex items-center gap-1.5 bg-[#C8102E] hover:bg-[#a01830] text-white text-xs font-bold tracking-widest uppercase px-5 py-3 rounded-lg transition-colors w-fit"
             >
               CONTACT US <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
             </a>

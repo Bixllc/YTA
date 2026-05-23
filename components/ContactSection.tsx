@@ -59,20 +59,20 @@ export default function ContactSection() {
   }
 
   const inputCls =
-    "w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#C41E3A] focus:ring-1 focus:ring-[#C41E3A] transition-colors";
+    "w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#C8102E] focus:ring-1 focus:ring-[#C8102E] transition-colors";
 
   return (
     <section id="contact" className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-16">
         {/* Left: Form */}
         <div>
-          <p className="text-[#C41E3A] text-xs font-bold tracking-[0.25em] uppercase mb-6">
+          <p className="text-[#C8102E] text-xs font-bold tracking-[0.25em] uppercase mb-6">
             CONTACT US
           </p>
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
             Let&apos;s build something
             <br />
-            <span className="text-[#C41E3A]">incredible together.</span>
+            <span className="text-[#C8102E]">incredible together.</span>
           </h2>
           <p className="text-gray-500 text-base mb-10">
             Whether you&apos;re a creator looking for representation or a brand looking to
@@ -165,7 +165,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="w-full inline-flex items-center justify-center gap-2 bg-[#C41E3A] hover:bg-[#a01830] disabled:bg-[#C41E3A]/60 text-white text-xs font-bold tracking-widest uppercase px-8 py-4 rounded-lg transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 bg-[#C8102E] hover:bg-[#a01830] disabled:bg-[#C8102E]/60 text-white text-xs font-bold tracking-widest uppercase px-8 py-4 rounded-lg transition-colors"
               >
                 {status === "loading" ? "SENDING..." : "SEND MESSAGE"}
                 {status !== "loading" && (
@@ -190,15 +190,15 @@ export default function ContactSection() {
             background: "linear-gradient(135deg, #111 0%, #1a0505 100%)",
           }}
         >
-          <div className="w-14 h-14 rounded-full bg-[#C41E3A]/20 border border-[#C41E3A]/30 flex items-center justify-center">
-            <Send className="w-6 h-6 text-[#C41E3A]" />
+          <div className="w-14 h-14 rounded-full bg-[#C8102E]/20 border border-[#C8102E]/30 flex items-center justify-center">
+            <Send className="w-6 h-6 text-[#C8102E]" />
           </div>
 
           <div>
             <h3 className="text-white text-2xl font-bold leading-snug mb-4">
               We&apos;re here for creators and brands.
             </h3>
-            <div className="w-10 h-[3px] bg-[#C41E3A] mb-4" />
+            <div className="w-10 h-[3px] bg-[#C8102E] mb-4" />
             <p className="text-gray-400 text-sm leading-relaxed">
               Have a question or just want to say hello? Reach out through any of the
               channels below.
@@ -209,8 +209,8 @@ export default function ContactSection() {
             {CONTACT_ITEMS.map((item, i) => (
               <div key={item.label}>
                 <div className="flex items-start gap-4 py-4">
-                  <div className="w-10 h-10 rounded-full border border-[#C41E3A]/40 bg-[#C41E3A]/10 flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-4 h-4 text-[#C41E3A]" />
+                  <div className="w-10 h-10 rounded-full border border-[#C8102E]/40 bg-[#C8102E]/10 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-4 h-4 text-[#C8102E]" />
                   </div>
                   <div>
                     <p className="text-white text-sm font-semibold">{item.label}</p>

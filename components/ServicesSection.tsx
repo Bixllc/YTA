@@ -16,9 +16,9 @@ function ServiceCard({
   return (
     <div className="relative bg-[#111] rounded-2xl p-8 overflow-hidden flex flex-col min-h-[420px]">
       <div className="flex items-center gap-4 mb-6">
-        <span className="text-[#C41E3A] text-sm font-bold">{number}</span>
-        <div className="p-2 rounded-lg bg-[#C41E3A]/10 border border-[#C41E3A]/20">
-          <Icon className="w-5 h-5 text-[#C41E3A]" strokeWidth={1.5} />
+        <span className="text-[#C8102E] text-sm font-bold">{number}</span>
+        <div className="p-2 rounded-lg bg-[#C8102E]/10 border border-[#C8102E]/20">
+          <Icon className="w-5 h-5 text-[#C8102E]" strokeWidth={1.5} />
         </div>
       </div>
       <h3 className="text-white text-2xl font-bold mb-4 leading-snug">{title}</h3>
@@ -27,9 +27,9 @@ function ServiceCard({
         <a
           href="#contact"
           aria-label={`Learn more about ${title}`}
-          className="w-10 h-10 rounded-full bg-[#C41E3A]/10 border border-[#C41E3A]/30 flex items-center justify-center hover:bg-[#C41E3A]/20 transition-colors"
+          className="w-10 h-10 rounded-full bg-[#C8102E]/10 border border-[#C8102E]/30 flex items-center justify-center hover:bg-[#C8102E]/20 transition-colors"
         >
-          <ArrowUpRight className="w-4 h-4 text-[#C41E3A]" strokeWidth={2} />
+          <ArrowUpRight className="w-4 h-4 text-[#C8102E]" strokeWidth={2} />
         </a>
       </div>
       <div className="absolute bottom-0 right-0 pointer-events-none">
@@ -56,7 +56,7 @@ function EnvelopeIllustration() {
           </div>
         </div>
         <div style={{ display: "flex", gap: 6 }}>
-          <span style={{ background: "#C41E3A", color: "white", borderRadius: 6, padding: "4px 10px", fontSize: 10, fontWeight: 600 }}>Review</span>
+          <span style={{ background: "#C8102E", color: "white", borderRadius: 6, padding: "4px 10px", fontSize: 10, fontWeight: 600 }}>Review</span>
           <span style={{ background: "#374151", color: "#9ca3af", borderRadius: 6, padding: "4px 10px", fontSize: 10 }}>Decline</span>
         </div>
       </div>
@@ -77,10 +77,10 @@ function DealIllustration() {
       </div>
       <div style={{ marginBottom: 12 }}>
         <p style={{ color: "#9ca3af", fontSize: 9, marginBottom: 2 }}>Negotiated Offer</p>
-        <p style={{ color: "#C41E3A", fontSize: 22, fontWeight: 800 }}>$15,000</p>
+        <p style={{ color: "#C8102E", fontSize: 22, fontWeight: 800 }}>$15,000</p>
       </div>
       <svg viewBox="0 0 160 45" style={{ width: "100%", height: 45, display: "block" }}>
-        <polyline points="0,42 40,32 80,22 120,12 160,3" fill="none" stroke="#C41E3A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <polyline points="0,42 40,32 80,22 120,12 160,3" fill="none" stroke="#C8102E" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </div>
   );
@@ -97,12 +97,12 @@ function ClipboardIllustration() {
         <p style={{ fontWeight: 800, fontSize: 9, color: "#111", letterSpacing: "0.06em", marginBottom: 8, textTransform: "uppercase" }}>Partnership Agreement</p>
         {items.map((item) => (
           <div key={item} style={{ display: "flex", alignItems: "center", gap: 5, marginBottom: 5 }}>
-            <span style={{ color: "#C41E3A", fontSize: 10, fontWeight: 700 }}>✓</span>
+            <span style={{ color: "#C8102E", fontSize: 10, fontWeight: 700 }}>✓</span>
             <span style={{ fontSize: 9, color: "#374151" }}>{item}</span>
           </div>
         ))}
       </div>
-      <div style={{ position: "absolute", bottom: -10, right: -10, width: 36, height: 36, background: "#C41E3A", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", border: "2px solid #111" }}>
+      <div style={{ position: "absolute", bottom: -10, right: -10, width: 36, height: 36, background: "#C8102E", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", border: "2px solid #111" }}>
         <span style={{ color: "white", fontSize: 14, fontWeight: 700 }}>✓</span>
       </div>
     </div>
@@ -114,11 +114,11 @@ export default function ServicesSection() {
     <section id="services" className="bg-[#0d0d0d] py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center mb-16">
-          <p className="text-[#C41E3A] text-xs font-bold tracking-[0.25em] uppercase mb-6">OUR SERVICES</p>
+          <p className="text-[#C8102E] text-xs font-bold tracking-[0.25em] uppercase mb-6">OUR SERVICES</p>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
             We handle the business.
             <br />
-            You focus on <span className="text-[#C41E3A]">creating.</span>
+            You focus on <span className="text-[#C8102E]">creating.</span>
           </h2>
           <p className="text-gray-400 text-base max-w-xl mx-auto leading-relaxed">
             From securing brand deals to managing contracts and maximizing opportunities, we provide end-to-end support so you can grow your brand while we handle the rest.

@@ -47,7 +47,7 @@ export async function POST(req: Request) {
       subject: `[YTA Contact] ${s.subject} — ${s.role}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #C41E3A;">New Contact Form Submission</h2>
+          <h2 style="color: #C8102E;">New Contact Form Submission</h2>
           <table style="width: 100%; border-collapse: collapse;">
             <tr><td style="padding: 8px; font-weight: bold; width: 140px;">Name</td><td style="padding: 8px;">${s.firstName} ${s.lastName}</td></tr>
             <tr style="background: #f9f9f9;"><td style="padding: 8px; font-weight: bold;">Email</td><td style="padding: 8px;"><a href="mailto:${s.email}">${s.email}</a></td></tr>
