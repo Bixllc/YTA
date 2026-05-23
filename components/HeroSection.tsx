@@ -47,159 +47,89 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Hero Graphic */}
-      <div className="relative mt-16 w-full max-w-4xl mx-auto flex items-end justify-center" style={{ height: "560px" }}>
+      {/* Hero Graphic — true fan from bottom-center pivot */}
+      <div className="relative mt-16 w-full max-w-5xl mx-auto" style={{ height: "520px" }}>
 
-        {/* === LEFT CARDS === */}
+        {/* All cards fan from bottom-center pivot */}
 
-        {/* L3 — outermost left */}
-        <div
-          className="absolute hidden md:block"
-          style={{
-            width: 130,
-            height: 210,
-            bottom: 40,
-            left: "calc(50% - 360px)",
-            zIndex: 5,
-            transform: "rotate(-20deg)",
-            transformOrigin: "bottom center",
-          }}
-        >
-          <FanCard
-            src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400"
-            alt="Creator lifestyle"
-            width={130}
-            height={210}
-          />
+        {/* L3 — outermost left (-32°) */}
+        <div className="absolute hidden md:block" style={{
+          width: 165, height: 310,
+          bottom: 0, left: "50%",
+          transform: "translateX(-50%) rotate(-32deg)",
+          transformOrigin: "bottom center",
+          zIndex: 5,
+        }}>
+          <FanCard src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400" alt="Creator" width={165} height={310} />
         </div>
 
-        {/* L2 — middle left */}
-        <div
-          className="absolute hidden md:block"
-          style={{
-            width: 140,
-            height: 230,
-            bottom: 40,
-            left: "calc(50% - 280px)",
-            zIndex: 10,
-            transform: "rotate(-12deg)",
-            transformOrigin: "bottom center",
-          }}
-        >
-          <FanCard
-            src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400"
-            alt="Camera setup"
-            width={140}
-            height={230}
-          />
+        {/* L2 — middle left (-20°) */}
+        <div className="absolute hidden md:block" style={{
+          width: 165, height: 310,
+          bottom: 0, left: "50%",
+          transform: "translateX(-50%) rotate(-20deg)",
+          transformOrigin: "bottom center",
+          zIndex: 10,
+        }}>
+          <FanCard src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400" alt="Camera" width={165} height={310} />
         </div>
 
-        {/* L1 — closest left */}
-        <div
-          className="absolute hidden md:block"
-          style={{
-            width: 150,
-            height: 260,
-            bottom: 40,
-            left: "calc(50% - 210px)",
-            zIndex: 15,
-            transform: "rotate(-5deg)",
-            transformOrigin: "bottom center",
-          }}
-        >
-          <FanCard
-            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400"
-            alt="Athlete"
-            width={150}
-            height={260}
-          />
+        {/* L1 — closest left (-9°) */}
+        <div className="absolute hidden md:block" style={{
+          width: 165, height: 310,
+          bottom: 0, left: "50%",
+          transform: "translateX(-50%) rotate(-9deg)",
+          transformOrigin: "bottom center",
+          zIndex: 15,
+        }}>
+          <FanCard src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400" alt="Athlete" width={165} height={310} />
         </div>
 
-        {/* === PHONE MOCKUP (center) === */}
-        <div
-          className="absolute"
-          style={{
-            width: 240,
-            height: 500,
-            bottom: 0,
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: 20,
-          }}
-        >
+        {/* Phone — center */}
+        <div className="absolute" style={{
+          width: 200, height: 430,
+          bottom: 0, left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 20,
+        }}>
           <PhoneMockup />
         </div>
 
-        {/* === RIGHT CARDS === */}
-
-        {/* R1 — closest right */}
-        <div
-          className="absolute hidden md:block"
-          style={{
-            width: 150,
-            height: 260,
-            bottom: 40,
-            left: "calc(50% + 60px)",
-            zIndex: 15,
-            transform: "rotate(5deg)",
-            transformOrigin: "bottom center",
-          }}
-        >
-          <FanCard
-            src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400"
-            alt="Fitness creator"
-            width={150}
-            height={260}
-          />
+        {/* R1 — closest right (+9°) */}
+        <div className="absolute hidden md:block" style={{
+          width: 165, height: 310,
+          bottom: 0, left: "50%",
+          transform: "translateX(-50%) rotate(9deg)",
+          transformOrigin: "bottom center",
+          zIndex: 15,
+        }}>
+          <FanCard src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400" alt="Fitness" width={165} height={310} />
         </div>
 
-        {/* R2 — middle right */}
-        <div
-          className="absolute hidden md:block"
-          style={{
-            width: 140,
-            height: 230,
-            bottom: 40,
-            left: "calc(50% + 140px)",
-            zIndex: 10,
-            transform: "rotate(12deg)",
-            transformOrigin: "bottom center",
-          }}
-        >
-          <FanCard
-            src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400"
-            alt="Studio lighting"
-            width={140}
-            height={230}
-          />
+        {/* R2 — middle right (+20°) */}
+        <div className="absolute hidden md:block" style={{
+          width: 165, height: 310,
+          bottom: 0, left: "50%",
+          transform: "translateX(-50%) rotate(20deg)",
+          transformOrigin: "bottom center",
+          zIndex: 10,
+        }}>
+          <FanCard src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400" alt="Studio" width={165} height={310} />
         </div>
 
-        {/* R3 — outermost right */}
-        <div
-          className="absolute hidden md:block"
-          style={{
-            width: 130,
-            height: 210,
-            bottom: 40,
-            left: "calc(50% + 230px)",
-            zIndex: 5,
-            transform: "rotate(20deg)",
-            transformOrigin: "bottom center",
-          }}
-        >
-          <FanCard
-            src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=400"
-            alt="Palm trees"
-            width={130}
-            height={210}
-          />
+        {/* R3 — outermost right (+32°) */}
+        <div className="absolute hidden md:block" style={{
+          width: 165, height: 310,
+          bottom: 0, left: "50%",
+          transform: "translateX(-50%) rotate(32deg)",
+          transformOrigin: "bottom center",
+          zIndex: 5,
+        }}>
+          <FanCard src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=400" alt="Palm trees" width={165} height={310} />
         </div>
 
-        {/* Ground reflection */}
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-56 h-6 rounded-full bg-black/10 blur-md"
-          style={{ zIndex: 1 }}
-        />
+        {/* Ground shadow */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-8 rounded-full bg-black/15 blur-xl" style={{ zIndex: 1 }} />
       </div>
 
       {/* Scroll cue */}
@@ -215,76 +145,47 @@ export default function HeroSection() {
 
 function PhoneMockup() {
   return (
+    /* Outer silver metal frame */
     <div
       className="relative w-full h-full"
       style={{
-        background: "#111",
-        borderRadius: 36,
-        boxShadow: "0 32px 64px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.2)",
-        border: "2px solid #333",
-        overflow: "hidden",
+        background: "linear-gradient(160deg, #c8c8c8 0%, #8a8a8a 50%, #b0b0b0 100%)",
+        borderRadius: 44,
+        padding: 6,
+        boxShadow: "0 40px 80px rgba(0,0,0,0.45), 0 8px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.3)",
       }}
     >
-      {/* Notch / Dynamic Island */}
+      {/* Inner black screen */}
       <div
-        className="absolute top-3 left-1/2 -translate-x-1/2 bg-black rounded-full"
-        style={{ width: 80, height: 26, zIndex: 10 }}
-      />
+        className="relative w-full h-full overflow-hidden"
+        style={{ background: "#0a0a0a", borderRadius: 38 }}
+      >
+        {/* Dynamic Island */}
+        <div
+          className="absolute top-3 left-1/2 -translate-x-1/2 bg-black rounded-full"
+          style={{ width: 72, height: 24, zIndex: 10 }}
+        />
 
-      {/* Screen content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6">
-        {/* YTA Triangle Logo (SVG) */}
-        <svg
-          viewBox="0 0 80 80"
-          className="w-16 h-16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {/* Outer triangle */}
-          <polygon
-            points="40,4 76,72 4,72"
-            stroke="#C41E3A"
-            strokeWidth="5"
-            fill="none"
-          />
-          {/* Inner inverted triangle */}
-          <polygon
-            points="40,62 18,22 62,22"
-            fill="#C41E3A"
-          />
-          {/* YT letter mark */}
-          <text
-            x="40"
-            y="50"
-            textAnchor="middle"
-            fill="white"
-            fontSize="16"
-            fontWeight="bold"
-            fontFamily="Arial, sans-serif"
-          >
-            YT
-          </text>
-        </svg>
+        {/* Screen content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-6">
+          {/* YTA Triangle Logo — no text, clean mark */}
+          <svg viewBox="0 0 80 80" className="w-16 h-16" fill="none">
+            {/* Outer triangle outline */}
+            <polygon points="40,4 76,72 4,72" stroke="#C41E3A" strokeWidth="4.5" fill="none" strokeLinejoin="round" />
+            {/* Inner inverted filled triangle */}
+            <polygon points="40,60 20,26 60,26" fill="#C41E3A" />
+          </svg>
 
-        {/* Agency name */}
-        <div className="text-center">
-          <p className="text-white font-extrabold text-xl tracking-widest leading-tight">
-            YOUNG
-            <br />
-            TALENT
-            <br />
-            AGENCY
+          {/* Agency name */}
+          <p className="text-white font-extrabold text-xl tracking-widest leading-tight text-center">
+            YOUNG<br />TALENT<br />AGENCY
           </p>
-        </div>
 
-        {/* Tagline */}
-        <div className="text-center mt-2">
-          <p className="text-white/70 text-[10px] tracking-widest uppercase">
-            CREATORS FIRST.
-          </p>
-          <p className="text-[#C41E3A] text-[10px] font-bold tracking-widest uppercase">
-            BUSINESS ALWAYS.
-          </p>
+          {/* Tagline */}
+          <div className="text-center">
+            <p className="text-white/60 text-[10px] tracking-widest uppercase">CREATORS FIRST.</p>
+            <p className="text-[#C41E3A] text-[10px] font-bold tracking-widest uppercase">BUSINESS ALWAYS.</p>
+          </div>
         </div>
       </div>
     </div>
