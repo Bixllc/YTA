@@ -73,13 +73,6 @@ function LogoColumn({
 export default function AboutSection() {
   return (
     <section id="about" className="bg-white py-24">
-      <style>{`
-        @keyframes scrollUp {
-          0% { transform: translateY(0); }
-          100% { transform: translateY(-50%); }
-        }
-      `}</style>
-
       <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* Left: Text */}
         <div>

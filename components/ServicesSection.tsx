@@ -24,9 +24,13 @@ function ServiceCard({
       <h3 className="text-white text-2xl font-bold mb-4 leading-snug">{title}</h3>
       <p className="text-gray-400 text-sm leading-relaxed max-w-xs">{description}</p>
       <div className="mt-auto pt-8">
-        <button className="w-10 h-10 rounded-full bg-[#C41E3A]/10 border border-[#C41E3A]/30 flex items-center justify-center hover:bg-[#C41E3A]/20 transition-colors">
+        <a
+          href="#contact"
+          aria-label={`Learn more about ${title}`}
+          className="w-10 h-10 rounded-full bg-[#C41E3A]/10 border border-[#C41E3A]/30 flex items-center justify-center hover:bg-[#C41E3A]/20 transition-colors"
+        >
           <ArrowUpRight className="w-4 h-4 text-[#C41E3A]" strokeWidth={2} />
-        </button>
+        </a>
       </div>
       <div className="absolute bottom-0 right-0 pointer-events-none">
         {illustration}

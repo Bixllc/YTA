@@ -9,3 +9,8 @@ html {
 body {
   background-color: #f2f2f2;
 }
+
+@keyframes scrollUp {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
