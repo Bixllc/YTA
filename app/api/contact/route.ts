@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 function escapeHtml(str: string): string {
   return str
     .replace(/&/g, "&amp;")
@@ -30,6 +28,8 @@ export async function POST(req: Request) {
   if (!emailRegex.test(email)) {
     return NextResponse.json({ error: "Invalid email address." }, { status: 400 });
   }
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   const s = {
     firstName: escapeHtml(firstName),
