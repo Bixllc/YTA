@@ -6,7 +6,7 @@ const LOGOS_A = [
   { name: "Frontier Airlines", src: "https://logo.clearbit.com/flyfrontier.com" },
   { name: "Visit Colorado Springs", src: "https://logo.clearbit.com/visitcos.com" },
   { name: "Hyatt", src: "https://logo.clearbit.com/hyatt.com" },
-  { name: "Moxy Hotels", src: "https://logo.clearbit.com/marriott.com" },
+  { name: "moxy HOTELS", src: null },
   { name: "GoPro", src: "https://logo.clearbit.com/gopro.com" },
 ];
 
@@ -18,27 +18,32 @@ const LOGOS_B = [
   { name: "Monday.com", src: "https://logo.clearbit.com/monday.com" },
 ];
 
-function LogoCard({ name, src }: { name: string; src: string }) {
+function LogoCard({ name, src }: { name: string; src: string | null }) {
   return (
     <div className="bg-white rounded-xl px-8 py-6 shadow-sm flex items-center justify-center w-full">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={src}
-        alt={name}
-        className="h-10 w-auto object-contain grayscale hover:grayscale-0 transition-all"
-        onError={(e) => {
-          const target = e.currentTarget as HTMLImageElement;
-          target.style.display = "none";
-          const fallback = target.nextElementSibling as HTMLElement;
-          if (fallback) fallback.style.display = "flex";
-        }}
-      />
-      <span
-        className="text-gray-700 font-semibold text-sm text-center hidden"
-        aria-hidden="true"
-      >
-        {name}
-      </span>
+      {src ? (
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={src}
+            alt={name}
+            className="h-10 w-auto object-contain grayscale hover:grayscale-0 transition-all"
+            onError={(e) => {
+              const target = e.currentTarget as HTMLImageElement;
+              target.style.display = "none";
+              const fallback = target.nextElementSibling as HTMLElement;
+              if (fallback) fallback.style.display = "flex";
+            }}
+          />
+          <span className="text-gray-700 font-semibold text-sm text-center hidden">
+            {name}
+          </span>
+        </>
+      ) : (
+        <span className="text-gray-700 font-semibold text-sm text-center italic tracking-wide">
+          {name}
+        </span>
+      )}
     </div>
   );
 }
@@ -47,7 +52,7 @@ function LogoColumn({
   logos,
   duration,
 }: {
-  logos: { name: string; src: string }[];
+  logos: { name: string; src: string | null }[];
   duration: string;
 }) {
   const doubled = [...logos, ...logos];
