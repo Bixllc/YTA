@@ -53,8 +53,13 @@ export default function Footer() {
             {/* Logo mark (text-based for dark bg) */}
             <div className="flex items-center gap-3 mb-4">
               <svg viewBox="0 0 48 48" className="w-10 h-10" fill="none">
-                <polygon points="24,3 45,42 3,42" stroke="#C8102E" strokeWidth="3" fill="none" />
-                <polygon points="24,36 13,14 35,14" fill="#C8102E" />
+                <polygon points="3,5 45,5 24,44" stroke="#C8102E" strokeWidth="3" fill="none" strokeLinejoin="round" />
+                <g stroke="#C8102E" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="11" y1="14" x2="24" y2="27" />
+                  <line x1="24" y1="14" x2="37" y2="14" />
+                  <line x1="37" y1="14" x2="24" y2="27" />
+                  <line x1="24" y1="27" x2="24" y2="40" />
+                </g>
               </svg>
               <div>
                 <p className="text-white font-extrabold text-sm tracking-widest leading-tight">

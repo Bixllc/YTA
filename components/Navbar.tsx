@@ -32,8 +32,13 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0">
             <svg viewBox="0 0 48 48" className="w-8 h-8" fill="none">
-              <polygon points="24,3 45,42 3,42" stroke="#C8102E" strokeWidth="3.5" fill="none" strokeLinejoin="round" />
-              <polygon points="24,36 13,16 35,16" fill="#C8102E" />
+              <polygon points="3,5 45,5 24,44" stroke="#C8102E" strokeWidth="3.5" fill="none" strokeLinejoin="round" />
+              <g stroke="#C8102E" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="11" y1="14" x2="24" y2="27" />
+                <line x1="24" y1="14" x2="37" y2="14" />
+                <line x1="37" y1="14" x2="24" y2="27" />
+                <line x1="24" y1="27" x2="24" y2="40" />
+              </g>
             </svg>
             <span className="text-gray-900 font-extrabold text-xs tracking-widest leading-tight uppercase">
               Young<br />Talent<br />Agency
