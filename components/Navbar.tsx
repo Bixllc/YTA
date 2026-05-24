@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
@@ -31,15 +30,14 @@ export default function Navbar() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex items-center justify-between bg-white rounded-2xl mt-4 px-6 py-3 shadow-sm">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 shrink-0">
-            <Image
-              src="/logo.png"
-              alt="Young Talent Agency"
-              width={120}
-              height={48}
-              className="h-10 w-auto object-contain"
-              priority
-            />
+          <Link href="/" className="flex items-center gap-2.5 shrink-0">
+            <svg viewBox="0 0 48 48" className="w-8 h-8" fill="none">
+              <polygon points="24,3 45,42 3,42" stroke="#C8102E" strokeWidth="3.5" fill="none" strokeLinejoin="round" />
+              <polygon points="24,36 13,16 35,16" fill="#C8102E" />
+            </svg>
+            <span className="text-gray-900 font-extrabold text-xs tracking-widest leading-tight uppercase">
+              Young<br />Talent<br />Agency
+            </span>
           </Link>
 
           {/* Desktop Nav */}
