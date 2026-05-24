@@ -21,11 +21,9 @@ export default function HeroSection() {
         </p>
 
         {/* H1 */}
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 leading-[1.05] mb-6">
-          We Handle the Business.
-          <br />
-          You Focus on{" "}
-          <span style={{ color: RED }}>the Content.</span>
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-gray-900 leading-[1.1] mb-6">
+          <span className="block">We Handle the Business.</span>
+          <span className="block">You Focus on <span style={{ color: RED }}>the Content.</span></span>
         </h1>
 
         {/* Subtitle */}
