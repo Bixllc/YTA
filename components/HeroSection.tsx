@@ -5,35 +5,54 @@ import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 const RED = "#C8102E";
 
+const CARDS = [
+  { src: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600", alt: "Creator lifestyle" },
+  { src: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600", alt: "Camera setup" },
+  { src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600", alt: "Athlete" },
+  { src: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600", alt: "Fitness creator" },
+  { src: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600", alt: "Studio lighting" },
+  { src: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=600", alt: "Luxury lifestyle" },
+];
+
+// Card dimensions
+const CW = 170; // card width
+const CH = 315; // card height
+const GAP = 14;  // gap between cards
+const PW = 218;  // phone width
+const PH = 452;  // phone height
+const OVERLAP = 36; // how much L1/R1 tuck behind phone
+
 export default function HeroSection() {
+  // L1 left edge: right edge is at (-PW/2 + OVERLAP), so left = right - CW
+  const L1 = -(PW / 2) + OVERLAP - CW;          // tucked behind phone
+  const L2 = L1 - GAP - CW;
+  const L3 = L2 - GAP - CW;
+  const R1 = PW / 2 - OVERLAP;                   // mirror
+  const R2 = R1 + CW + GAP;
+  const R3 = R2 + CW + GAP;
+
   return (
     <section className="relative min-h-screen bg-[#F0EFED] flex flex-col items-center overflow-hidden pt-32 pb-16">
 
       {/* ── Text block ─────────────────────────────────── */}
       <div className="flex flex-col items-center text-center px-6 max-w-3xl w-full">
-
-        {/* Tagline */}
-        <p
-          className="text-xs font-bold tracking-[0.3em] uppercase mb-6"
-          style={{ color: RED }}
-        >
+        <p className="text-xs font-bold tracking-[0.3em] uppercase mb-6" style={{ color: RED }}>
           CREATORS FIRST. BUSINESS ALWAYS.
         </p>
 
-        {/* H1 */}
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-gray-900 leading-[1.1] mb-6">
           <span className="block">We Handle the Business.</span>
-          <span className="block">You Focus on <span style={{ color: RED }}>the Content.</span></span>
+          <span className="block">
+            You Focus on <span style={{ color: RED }}>the Content.</span>
+          </span>
         </h1>
 
-        {/* Subtitle */}
         <p className="text-gray-500 text-base md:text-lg max-w-md leading-relaxed mb-10 text-center">
           Young Talent Agency represents creators, managing the business side of
           their brand so they can do what they do best,{" "}
           <span style={{ color: RED }} className="font-semibold">create.</span>
         </p>
 
-        {/* CTA Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4">
           <a
             href="#contact"
@@ -42,107 +61,142 @@ export default function HeroSection() {
             onMouseEnter={e => (e.currentTarget.style.background = "#a00e24")}
             onMouseLeave={e => (e.currentTarget.style.background = RED)}
           >
-            WORK WITH US
-            <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
+            WORK WITH US <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
           </a>
           <a
             href="#roster"
             className="inline-flex items-center gap-2 bg-transparent border-2 border-gray-900 hover:bg-gray-900 hover:text-white text-gray-900 text-xs font-bold tracking-[0.15em] uppercase px-8 py-4 rounded-lg transition-colors"
           >
-            MEET OUR TALENT
-            <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
+            MEET OUR TALENT <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
           </a>
         </div>
       </div>
 
       {/* ── Hero Graphic ───────────────────────────────── */}
-      <div className="relative mt-14 w-full max-w-5xl mx-auto" style={{ height: 520 }}>
+      <div className="relative w-full mt-14 overflow-hidden" style={{ height: 520 }}>
 
-        {/* L3 — outermost left (-32°) */}
+        {/* Ground glow beneath phone */}
+        <div
+          className="absolute left-1/2 -translate-x-1/2"
+          style={{
+            bottom: 0,
+            width: 340,
+            height: 40,
+            background: "radial-gradient(ellipse, rgba(0,0,0,0.13) 0%, transparent 70%)",
+            zIndex: 1,
+            filter: "blur(6px)",
+          }}
+        />
+
+        {/* ── LEFT CARDS ── */}
+        {/* L3 — outermost */}
         <div className="absolute hidden md:block" style={{
-          width: 165, height: 310,
-          bottom: 0, left: "50%",
-          transform: "translateX(-50%) rotate(-32deg)",
+          width: CW, height: CH,
+          bottom: 70,
+          left: `calc(50% + ${L3}px)`,
+          zIndex: 4,
+          transform: "rotate(-2.5deg) scale(0.88)",
           transformOrigin: "bottom center",
-          zIndex: 5,
+          filter: "brightness(0.82)",
         }}>
-          <FanCard src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400" alt="Creator" width={165} height={310} />
+          <PhotoCard {...CARDS[0]} />
         </div>
 
-        {/* L2 (-20°) */}
+        {/* L2 — middle */}
         <div className="absolute hidden md:block" style={{
-          width: 165, height: 310,
-          bottom: 0, left: "50%",
-          transform: "translateX(-50%) rotate(-20deg)",
+          width: CW, height: CH,
+          bottom: 70,
+          left: `calc(50% + ${L2}px)`,
+          zIndex: 8,
+          transform: "rotate(-1.5deg) scale(0.94)",
           transformOrigin: "bottom center",
-          zIndex: 10,
+          filter: "brightness(0.9)",
         }}>
-          <FanCard src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400" alt="Camera" width={165} height={310} />
+          <PhotoCard {...CARDS[1]} />
         </div>
 
-        {/* L1 (-9°) */}
+        {/* L1 — closest, tucks behind phone */}
         <div className="absolute hidden md:block" style={{
-          width: 165, height: 310,
-          bottom: 0, left: "50%",
-          transform: "translateX(-50%) rotate(-9deg)",
+          width: CW, height: CH,
+          bottom: 70,
+          left: `calc(50% + ${L1}px)`,
+          zIndex: 12,
+          transform: "rotate(-0.5deg) scale(0.98)",
           transformOrigin: "bottom center",
-          zIndex: 15,
         }}>
-          <FanCard src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400" alt="Athlete" width={165} height={310} />
+          <PhotoCard {...CARDS[2]} />
         </div>
 
-        {/* Phone — center */}
+        {/* ── PHONE (center, always visible) ── */}
         <div className="absolute" style={{
-          width: 210, height: 440,
-          bottom: 0, left: "50%",
+          width: PW, height: PH,
+          bottom: 0,
+          left: "50%",
           transform: "translateX(-50%)",
           zIndex: 20,
         }}>
           <PhoneMockup />
         </div>
 
-        {/* R1 (+9°) */}
+        {/* ── RIGHT CARDS ── */}
+        {/* R1 — closest, tucks behind phone */}
         <div className="absolute hidden md:block" style={{
-          width: 165, height: 310,
-          bottom: 0, left: "50%",
-          transform: "translateX(-50%) rotate(9deg)",
+          width: CW, height: CH,
+          bottom: 70,
+          left: `calc(50% + ${R1}px)`,
+          zIndex: 12,
+          transform: "rotate(0.5deg) scale(0.98)",
           transformOrigin: "bottom center",
-          zIndex: 15,
         }}>
-          <FanCard src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400" alt="Fitness" width={165} height={310} />
+          <PhotoCard {...CARDS[3]} />
         </div>
 
-        {/* R2 (+20°) */}
+        {/* R2 — middle */}
         <div className="absolute hidden md:block" style={{
-          width: 165, height: 310,
-          bottom: 0, left: "50%",
-          transform: "translateX(-50%) rotate(20deg)",
+          width: CW, height: CH,
+          bottom: 70,
+          left: `calc(50% + ${R2}px)`,
+          zIndex: 8,
+          transform: "rotate(1.5deg) scale(0.94)",
           transformOrigin: "bottom center",
-          zIndex: 10,
+          filter: "brightness(0.9)",
         }}>
-          <FanCard src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400" alt="Studio" width={165} height={310} />
+          <PhotoCard {...CARDS[4]} />
         </div>
 
-        {/* R3 (+32°) */}
+        {/* R3 — outermost */}
         <div className="absolute hidden md:block" style={{
-          width: 165, height: 310,
-          bottom: 0, left: "50%",
-          transform: "translateX(-50%) rotate(32deg)",
+          width: CW, height: CH,
+          bottom: 70,
+          left: `calc(50% + ${R3}px)`,
+          zIndex: 4,
+          transform: "rotate(2.5deg) scale(0.88)",
           transformOrigin: "bottom center",
-          zIndex: 5,
+          filter: "brightness(0.82)",
         }}>
-          <FanCard src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=400" alt="Palm trees" width={165} height={310} />
+          <PhotoCard {...CARDS[5]} />
         </div>
 
-        {/* Ground shadow */}
+        {/* Left edge fade — "infinite carousel" effect */}
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 rounded-full blur-2xl"
-          style={{ width: 280, height: 32, background: "rgba(0,0,0,0.12)", zIndex: 1 }}
+          className="absolute inset-y-0 left-0 z-30 pointer-events-none hidden md:block"
+          style={{
+            width: 220,
+            background: "linear-gradient(to right, #F0EFED 30%, transparent 100%)",
+          }}
+        />
+        {/* Right edge fade */}
+        <div
+          className="absolute inset-y-0 right-0 z-30 pointer-events-none hidden md:block"
+          style={{
+            width: 220,
+            background: "linear-gradient(to left, #F0EFED 30%, transparent 100%)",
+          }}
         />
       </div>
 
-      {/* ── Scroll cue (below graphic) ─────────────────── */}
-      <div className="flex flex-col items-center gap-2 mt-10 text-gray-400">
+      {/* ── Scroll cue ─────────────────────────────────── */}
+      <div className="flex flex-col items-center gap-2 mt-8 text-gray-400">
         <span className="text-[10px] font-semibold tracking-[0.35em] uppercase">
           Scroll to Discover
         </span>
@@ -153,63 +207,94 @@ export default function HeroSection() {
   );
 }
 
+// ── Phone Mockup ──────────────────────────────────────────
+
 function PhoneMockup() {
   return (
     <div
       className="relative w-full h-full"
       style={{
-        background: "linear-gradient(160deg, #d0d0d0 0%, #888 50%, #b8b8b8 100%)",
+        background: "linear-gradient(160deg, #d4d4d4 0%, #8c8c8c 45%, #bcbcbc 100%)",
         borderRadius: 46,
         padding: 7,
-        boxShadow: "0 40px 80px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.35)",
+        boxShadow:
+          "0 48px 96px rgba(0,0,0,0.42), 0 16px 32px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.4)",
       }}
     >
+      {/* Screen */}
       <div
-        className="relative w-full h-full overflow-hidden"
-        style={{ background: "#0a0a0a", borderRadius: 40 }}
+        className="relative w-full h-full overflow-hidden flex flex-col items-center justify-center gap-5"
+        style={{ background: "#080808", borderRadius: 40 }}
       >
         {/* Dynamic Island */}
         <div
-          className="absolute top-3 left-1/2 -translate-x-1/2 bg-black rounded-full"
+          className="absolute top-[10px] left-1/2 -translate-x-1/2 bg-black rounded-full"
           style={{ width: 74, height: 24, zIndex: 10 }}
         />
 
-        {/* Screen content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-6">
-          {/* YTA logo mark */}
-          <svg viewBox="0 0 80 80" className="w-16 h-16" fill="none">
-            <polygon points="40,4 76,72 4,72" stroke="#C8102E" strokeWidth="4.5" fill="none" strokeLinejoin="round" />
-            <polygon points="40,60 20,26 60,26" fill="#C8102E" />
-          </svg>
+        {/* Logo mark */}
+        <svg viewBox="0 0 80 80" style={{ width: 60, height: 60 }} fill="none">
+          <polygon
+            points="40,5 75,70 5,70"
+            stroke={RED}
+            strokeWidth="4"
+            fill="none"
+            strokeLinejoin="round"
+          />
+          <polygon points="40,58 21,27 59,27" fill={RED} />
+        </svg>
 
-          <p className="text-white font-extrabold text-xl tracking-widest leading-tight text-center">
-            YOUNG<br />TALENT<br />AGENCY
+        {/* Agency name */}
+        <p
+          className="text-white font-extrabold text-center leading-tight"
+          style={{ fontSize: 19, letterSpacing: "0.18em" }}
+        >
+          YOUNG{"\n"}TALENT{"\n"}AGENCY
+        </p>
+
+        {/* Tagline */}
+        <div className="text-center" style={{ marginTop: -4 }}>
+          <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 9, letterSpacing: "0.2em" }}>
+            CREATORS FIRST.
           </p>
-
-          <div className="text-center">
-            <p className="text-white/60 text-[10px] tracking-widest uppercase">CREATORS FIRST.</p>
-            <p className="text-[10px] font-bold tracking-widest uppercase" style={{ color: "#C8102E" }}>BUSINESS ALWAYS.</p>
-          </div>
+          <p style={{ color: RED, fontSize: 9, fontWeight: 700, letterSpacing: "0.2em" }}>
+            BUSINESS ALWAYS.
+          </p>
         </div>
+
+        {/* Subtle red glow accent at bottom */}
+        <div
+          className="absolute bottom-0 left-0 right-0"
+          style={{
+            height: 120,
+            background: `radial-gradient(ellipse at 50% 100%, ${RED}22 0%, transparent 70%)`,
+            pointerEvents: "none",
+          }}
+        />
       </div>
     </div>
   );
 }
 
-function FanCard({ src, alt, width, height }: { src: string; alt: string; width: number; height: number }) {
+// ── Photo Card ────────────────────────────────────────────
+
+function PhotoCard({ src, alt }: { src: string; alt: string }) {
   return (
     <div
-      className="w-full h-full bg-white rounded-2xl overflow-hidden"
-      style={{ padding: 5, boxShadow: "0 8px 32px rgba(0,0,0,0.18)" }}
+      className="w-full h-full bg-white overflow-hidden"
+      style={{
+        borderRadius: 20,
+        padding: 5,
+        boxShadow: "0 20px 48px rgba(0,0,0,0.22), 0 4px 12px rgba(0,0,0,0.1)",
+      }}
     >
-      <div className="relative w-full h-full rounded-xl overflow-hidden">
+      <div className="relative w-full h-full overflow-hidden" style={{ borderRadius: 16 }}>
         <Image
           src={src}
           alt={alt}
-          width={width}
-          height={height}
-          sizes="(max-width: 768px) 0px, 180px"
-          className="w-full h-full object-cover"
+          fill
+          sizes="180px"
+          className="object-cover"
         />
       </div>
     </div>
