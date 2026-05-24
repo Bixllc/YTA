@@ -1,133 +1,50 @@
-"use client";
-
-import { ArrowUpRight } from "lucide-react";
-
-const LOGOS_A = [
-  { name: "Frontier Airlines", src: "https://logo.clearbit.com/flyfrontier.com" },
-  { name: "Visit Colorado Springs", src: "https://logo.clearbit.com/visitcos.com" },
-  { name: "Hyatt", src: "https://logo.clearbit.com/hyatt.com" },
-  { name: "moxy HOTELS", src: null },
-  { name: "GoPro", src: "https://logo.clearbit.com/gopro.com" },
+const STATS = [
+  { n: "9", sup: "+", label: "Brand Partners" },
+  { n: "2", sup: "+", label: "Talent Roster" },
+  { n: "45", sup: "K", label: "Total Followers" },
+  { n: "1.8", sup: "M", label: "TikTok Likes" },
 ];
-
-const LOGOS_B = [
-  { name: "Meta", src: "https://logo.clearbit.com/meta.com" },
-  { name: "Krispy Kreme", src: "https://logo.clearbit.com/krispykreme.com" },
-  { name: "Expedia", src: "https://logo.clearbit.com/expedia.com" },
-  { name: "Kroger", src: "https://logo.clearbit.com/kroger.com" },
-  { name: "Monday.com", src: "https://logo.clearbit.com/monday.com" },
-];
-
-function LogoCard({ name, src }: { name: string; src: string | null }) {
-  return (
-    <div className="bg-white rounded-xl px-8 py-6 shadow-sm flex items-center justify-center w-full">
-      {src ? (
-        <>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={src}
-            alt={name}
-            className="h-10 w-auto object-contain grayscale hover:grayscale-0 transition-all"
-            onError={(e) => {
-              const target = e.currentTarget as HTMLImageElement;
-              target.style.display = "none";
-              const fallback = target.nextElementSibling as HTMLElement;
-              if (fallback) fallback.style.display = "flex";
-            }}
-          />
-          <span className="text-gray-700 font-semibold text-sm text-center hidden">
-            {name}
-          </span>
-        </>
-      ) : (
-        <span className="text-gray-700 font-semibold text-sm text-center italic tracking-wide">
-          {name}
-        </span>
-      )}
-    </div>
-  );
-}
-
-function LogoColumn({
-  logos,
-  duration,
-}: {
-  logos: { name: string; src: string | null }[];
-  duration: string;
-}) {
-  const doubled = [...logos, ...logos];
-  return (
-    <div className="relative overflow-hidden flex-1" style={{ height: 560 }}>
-      <div
-        className="flex flex-col gap-4"
-        style={{ animation: `scrollUp ${duration} linear infinite` }}
-      >
-        {doubled.map((logo, i) => (
-          <LogoCard key={`${logo.name}-${i}`} name={logo.name} src={logo.src} />
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export default function AboutSection() {
   return (
-    <section id="about" className="bg-white py-24">
-      <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        {/* Left: Text */}
-        <div>
-          <p className="text-[#C8102E] text-xs font-bold tracking-[0.25em] uppercase mb-6">
-            ABOUT YOUNG TALENT AGENCY
+    <section id="about" style={{ background: "var(--cream)", padding: "140px 52px", position: "relative", overflow: "hidden" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: 100, alignItems: "start", maxWidth: 1400, margin: "0 auto" }} className="about-responsive-grid">
+        {/* Left */}
+        <div className="reveal-left">
+          <p style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--red)", marginBottom: 18, fontFamily: "var(--font-dm)" }}>
+            Who We Are
           </p>
-
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
-            We&apos;re in your corner.
-            <br />
-            <span className="text-[#C8102E]">Always.</span>
+          <h2 style={{ fontFamily: "var(--font-bebas)", fontSize: "clamp(52px, 6vw, 86px)", lineHeight: 0.93, letterSpacing: "0.015em", marginBottom: 28, color: "var(--ink)" }}>
+            In Your<br />Corner.
           </h2>
-
-          <div className="w-10 h-[3px] bg-[#C8102E] mt-5 mb-8" />
-
-          <div className="space-y-5 text-gray-600 text-base leading-relaxed max-w-lg">
-            <p>
-              We started Young Talent Agency because we love the business side of the creator
-              world. Negotiating deals, advocating for talent, and making sure the people we
-              represent are valued and protected – that&apos;s what drives us. We&apos;re not just
-              middlemen. We&apos;re in your corner, fighting for what you&apos;re worth and making
-              sure every opportunity that comes your way works in your favor.
-            </p>
-            <p>
-              We believe that every creator deserves someone who genuinely cares about their
-              growth and their business, someone who takes the time to understand their brand
-              and advocates for them like it&apos;s personal. Because for us, it is.
-            </p>
-            <p>
-              Whether you&apos;re a full-time creator or someone building something on the side,
-              we&apos;re here to handle the business so you can focus on what you&apos;re good at
-              and make sure you&apos;re compensated fairly along the way.
-            </p>
+          <div style={{ width: 36, height: 3, background: "var(--red)", marginBottom: 32 }} />
+          <div style={{ fontSize: 16, lineHeight: 1.85, color: "var(--mid)", fontFamily: "var(--font-dm)" }}>
+            <p>We started Young Talent Agency because we love the business side of the creator world. Negotiating deals, advocating for talent, and making sure the people we represent are valued and protected — that&apos;s what drives us.</p>
+            <p style={{ marginTop: 18 }}>We&apos;re not just middlemen. We believe every creator deserves someone who genuinely cares about their growth and advocates for them like it&apos;s personal. Because for us, it is.</p>
+            <p style={{ marginTop: 18 }}>Whether you&apos;re a full-time creator or building something on the side, we&apos;re here to handle the business so you can focus on what you&apos;re good at.</p>
           </div>
-
-          <a
-            href="#work"
-            className="inline-flex items-center gap-2 mt-8 border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white text-xs font-bold tracking-widest uppercase px-6 py-3 rounded-lg transition-colors"
-          >
-            WORK WITH US
-            <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
-          </a>
         </div>
 
-        {/* Right: Logo scroll */}
-        <div className="flex flex-col gap-3">
-          <div className="flex gap-4">
-            <LogoColumn logos={LOGOS_A} duration="25s" />
-            <LogoColumn logos={LOGOS_B} duration="20s" />
-          </div>
-          <p className="text-center text-xs font-semibold tracking-[0.3em] text-gray-400 uppercase mt-2">
-            OUR PARTNERS
-          </p>
+        {/* Right — stat tiles */}
+        <div className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2 }}>
+          {STATS.map((s) => (
+            <div key={s.label} className="stat-tile">
+              <span style={{ fontFamily: "var(--font-bebas)", fontSize: 62, lineHeight: 1, color: "#fff", display: "block" }}>
+                {s.n}<em style={{ color: "var(--red)", fontStyle: "normal" }}>{s.sup}</em>
+              </span>
+              <span style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,.4)", marginTop: 10, display: "block", fontFamily: "var(--font-dm)" }}>
+                {s.label}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .about-responsive-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+        }
+      `}</style>
     </section>
   );
 }

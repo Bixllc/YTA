@@ -1,107 +1,129 @@
 "use client";
-
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
-const NAV_LINKS = [
-  { label: "ABOUT", href: "#about" },
-  { label: "SERVICES", href: "#services" },
-  { label: "OUR ROSTER", href: "#roster" },
-  { label: "WORK WITH US", href: "#work" },
+const LINKS = [
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Our Roster", href: "#roster" },
+  { label: "Work With Us", href: "#contact" },
 ];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 10);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-shadow duration-300 ${
-        isScrolled ? "shadow-md" : ""
-      }`}
-    >
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="flex items-center justify-between bg-white rounded-2xl mt-4 px-6 py-3 shadow-sm">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            <svg viewBox="0 0 48 48" className="w-8 h-8" fill="none">
-              <polygon points="3,5 45,5 24,44" stroke="#C8102E" strokeWidth="3.5" fill="none" strokeLinejoin="round" />
-              <g stroke="#C8102E" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="11" y1="14" x2="24" y2="27" />
-                <line x1="24" y1="14" x2="37" y2="14" />
-                <line x1="37" y1="14" x2="24" y2="27" />
-                <line x1="24" y1="27" x2="24" y2="40" />
-              </g>
-            </svg>
-            <span className="text-gray-900 font-extrabold text-xs tracking-widest leading-tight uppercase">
-              Young<br />Talent<br />Agency
-            </span>
-          </Link>
+    <>
+      <nav
+        style={{
+          position: "fixed", top: 0, left: 0, right: 0, zIndex: 200,
+          display: "flex", alignItems: "center", justifyContent: "space-between",
+          padding: "12px 52px",
+          height: 100,
+          transition: "background .4s, border-color .4s, box-shadow .4s",
+          background: scrolled ? "rgba(247,244,240,0.97)" : "transparent",
+          borderBottom: scrolled ? "1px solid var(--light-border)" : "1px solid transparent",
+          backdropFilter: scrolled ? "blur(12px)" : "none",
+          boxShadow: scrolled ? "0 2px 20px rgba(26,23,20,0.06)" : "none",
+        }}
+      >
+        {/* Logo */}
+        <a href="#" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+          <Image src="/logo.png" alt="Young Talent Agency" height={46} width={120} style={{ height: 46, width: "auto", objectFit: "contain" }} />
+        </a>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
+        {/* Desktop links */}
+        <ul style={{ display: "flex", alignItems: "center", gap: 36, listStyle: "none" }} className="hidden md:flex">
+          {LINKS.map((l) => (
+            <li key={l.label}>
+              <a href={l.href} className="nav-ul-link">{l.label}</a>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA */}
+        <a
+          href="#contact"
+          className="hidden md:inline-block"
+          style={{
+            background: "var(--ink)", color: "#fff",
+            padding: "11px 28px", fontSize: 12,
+            letterSpacing: "0.1em", textTransform: "uppercase",
+            textDecoration: "none",
+            transition: "background .2s, transform .2s",
+            fontFamily: "var(--font-dm)",
+          }}
+          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--red)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "var(--ink)"; (e.currentTarget as HTMLElement).style.transform = ""; }}
+        >
+          Contact Us
+        </a>
+
+        {/* Hamburger */}
+        <button
+          className={`md:hidden nav-burger ${drawerOpen ? "open" : ""}`}
+          onClick={() => setDrawerOpen((v) => !v)}
+          aria-label="Toggle menu"
+          style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: 5, width: 40, height: 40, background: "none", border: "none", padding: 4, zIndex: 400 }}
+        >
+          <span style={{ display: "block", width: 24, height: 2, background: "var(--ink)", borderRadius: 2, transition: "transform .3s, opacity .3s", transform: drawerOpen ? "translateY(7px) rotate(45deg)" : "" }} />
+          <span style={{ display: "block", height: 2, background: "var(--ink)", borderRadius: 2, transition: "transform .3s, opacity .3s, width .3s", opacity: drawerOpen ? 0 : 1, width: drawerOpen ? 0 : 24 }} />
+          <span style={{ display: "block", width: 24, height: 2, background: "var(--ink)", borderRadius: 2, transition: "transform .3s, opacity .3s", transform: drawerOpen ? "translateY(-7px) rotate(-45deg)" : "" }} />
+        </button>
+      </nav>
+
+      {/* Mobile drawer */}
+      <div
+        style={{
+          position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 300,
+          background: "var(--cream)",
+          display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",
+          transform: drawerOpen ? "translateX(0)" : "translateX(100%)",
+          transition: "transform .45s cubic-bezier(.16,1,.3,1)",
+          padding: "80px 40px 40px",
+        }}
+      >
+        <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+          {LINKS.map((l, i) => (
+            <li key={l.label} style={{ width: "100%", borderBottom: "1px solid var(--light-border)", borderTop: i === 0 ? "1px solid var(--light-border)" : undefined }}>
               <a
-                key={link.label}
-                href={link.href}
-                className="text-xs font-semibold tracking-widest text-gray-700 hover:text-gray-900 transition-colors"
+                href={l.href}
+                onClick={() => setDrawerOpen(false)}
+                style={{
+                  display: "block", padding: "22px 0",
+                  fontFamily: "var(--font-bebas)", fontSize: 44, letterSpacing: "0.04em",
+                  color: "var(--ink)", textDecoration: "none",
+                  transition: "color .2s, padding-left .2s",
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "var(--red)"; (e.currentTarget as HTMLElement).style.paddingLeft = "12px"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "var(--ink)"; (e.currentTarget as HTMLElement).style.paddingLeft = "0"; }}
               >
-                {link.label}
+                {l.label}
               </a>
-            ))}
-          </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-1.5 bg-[#C8102E] hover:bg-[#a01830] text-white text-xs font-bold tracking-widest uppercase px-5 py-3 rounded-lg transition-colors"
-            >
-              CONTACT US
-              <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
-            </a>
-          </div>
-
-          {/* Mobile hamburger */}
-          <button
-            className="md:hidden p-2 text-gray-700"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-
-        {/* Mobile menu */}
-        {mobileOpen && (
-          <div className="md:hidden bg-white rounded-2xl mt-2 px-6 py-4 shadow-sm flex flex-col gap-4">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-xs font-semibold tracking-widest text-gray-700 hover:text-gray-900 transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              onClick={() => setMobileOpen(false)}
-              className="inline-flex items-center gap-1.5 bg-[#C8102E] hover:bg-[#a01830] text-white text-xs font-bold tracking-widest uppercase px-5 py-3 rounded-lg transition-colors w-fit"
-            >
-              CONTACT US <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
-            </a>
-          </div>
-        )}
+            </li>
+          ))}
+        </ul>
+        <a
+          href="#contact"
+          onClick={() => setDrawerOpen(false)}
+          style={{
+            marginTop: 40, background: "var(--red)", color: "#fff",
+            padding: "16px 52px", fontSize: 13,
+            letterSpacing: "0.12em", textTransform: "uppercase",
+            textDecoration: "none", display: "inline-block",
+            fontFamily: "var(--font-dm)",
+          }}
+        >
+          Work With Us
+        </a>
       </div>
-    </header>
+    </>
   );
 }

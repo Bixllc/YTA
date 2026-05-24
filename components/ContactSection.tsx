@@ -1,232 +1,99 @@
-"use client";
+const InstagramIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+  </svg>
+);
 
-import { useState } from "react";
-import { ArrowUpRight, Mail, Phone, MapPin, Clock, Send } from "lucide-react";
-
-const CONTACT_ITEMS = [
-  { icon: Mail, label: "Email Us", value: "hello@yngtlntagency.com" },
-  { icon: Phone, label: "Call Us", value: "(614) 123-4567" },
-  { icon: MapPin, label: "Our Office", value: "Columbus, OH\nUnited States" },
-  { icon: Clock, label: "Business Hours", value: "Mon - Fri: 9AM - 6PM EST" },
-];
-
-type FormState = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  role: string;
-  subject: string;
-  message: string;
-};
-
-const EMPTY_FORM: FormState = {
-  firstName: "", lastName: "", email: "",
-  role: "", subject: "", message: "",
-};
+const MailIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+  </svg>
+);
 
 export default function ContactSection() {
-  const [form, setForm] = useState<FormState>(EMPTY_FORM);
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [errorMsg, setErrorMsg] = useState("");
-
-  function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  }
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setStatus("loading");
-    setErrorMsg("");
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || "Something went wrong.");
-      }
-      setStatus("success");
-      setForm(EMPTY_FORM);
-    } catch (err) {
-      setStatus("error");
-      setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
-    }
-  }
-
-  const inputCls =
-    "w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#C8102E] focus:ring-1 focus:ring-[#C8102E] transition-colors";
-
   return (
-    <section id="contact" className="bg-white py-24">
-      <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-16">
-        {/* Left: Form */}
-        <div>
-          <p className="text-[#C8102E] text-xs font-bold tracking-[0.25em] uppercase mb-6">
-            CONTACT US
+    <section id="contact" style={{ background: "var(--cream)", padding: "140px 52px", position: "relative", borderTop: "1px solid var(--light-border)" }}>
+      <div style={{ maxWidth: 1400, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80 }} className="contact-grid-responsive">
+
+        {/* Left */}
+        <div className="reveal-left">
+          <p style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--red)", marginBottom: 18, fontFamily: "var(--font-dm)" }}>
+            Let&apos;s Connect
           </p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-            Let&apos;s build something
-            <br />
-            <span className="text-[#C8102E]">incredible together.</span>
+          <h2 style={{ fontFamily: "var(--font-bebas)", fontSize: "clamp(52px, 6vw, 86px)", lineHeight: 0.93, letterSpacing: "0.015em", color: "var(--ink)", marginBottom: 28 }}>
+            Work<br />With Us
           </h2>
-          <p className="text-gray-500 text-base mb-10">
-            Whether you&apos;re a creator looking for representation or a brand looking to
-            collaborate, we&apos;d love to hear from you.
-            <br />
-            Fill out the form and our team will get back to you soon.
+          <div style={{ width: 36, height: 3, background: "var(--red)", marginBottom: 32 }} />
+          <p style={{ fontSize: 17, lineHeight: 1.75, color: "var(--mid)", marginBottom: 52, fontFamily: "var(--font-dm)" }}>
+            Whether you&apos;re a brand looking to partner with our talent, or a creator ready for representation — we want to hear from you.
           </p>
 
-          {status === "success" ? (
-            <div className="rounded-2xl bg-green-50 border border-green-200 p-8 text-center">
-              <p className="text-green-700 font-bold text-lg mb-2">Message sent!</p>
-              <p className="text-green-600 text-sm">
-                Thanks for reaching out. We&apos;ll get back to you soon.
-              </p>
-              <button
-                onClick={() => setStatus("idle")}
-                className="mt-4 text-sm text-green-700 underline"
-              >
-                Send another message
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Name row */}
-              <div className="grid grid-cols-2 gap-4">
-                <input
-                  name="firstName"
-                  value={form.firstName}
-                  onChange={handleChange}
-                  placeholder="First Name *"
-                  required
-                  className={inputCls}
-                />
-                <input
-                  name="lastName"
-                  value={form.lastName}
-                  onChange={handleChange}
-                  placeholder="Last Name *"
-                  required
-                  className={inputCls}
-                />
-              </div>
-
-              <input
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                placeholder="Email Address *"
-                required
-                className={inputCls}
-              />
-
-              <select
-                name="role"
-                value={form.role}
-                onChange={handleChange}
-                required
-                className={`${inputCls} ${!form.role ? "text-gray-400" : "text-gray-900"}`}
-              >
-                <option value="" disabled>I am a... *</option>
-                <option value="Creator">Creator</option>
-                <option value="Brand">Brand</option>
-                <option value="Other">Other</option>
-              </select>
-
-              <input
-                name="subject"
-                value={form.subject}
-                onChange={handleChange}
-                placeholder="Subject *"
-                required
-                className={inputCls}
-              />
-
-              <textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                placeholder="Tell us more about your inquiry *"
-                required
-                rows={5}
-                className={`${inputCls} resize-y`}
-              />
-
-              {status === "error" && (
-                <p className="text-red-500 text-sm">{errorMsg}</p>
-              )}
-
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                className="w-full inline-flex items-center justify-center gap-2 bg-[#C8102E] hover:bg-[#a01830] disabled:bg-[#C8102E]/60 text-white text-xs font-bold tracking-widest uppercase px-8 py-4 rounded-lg transition-colors"
-              >
-                {status === "loading" ? "SENDING..." : "SEND MESSAGE"}
-                {status !== "loading" && (
-                  <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
-                )}
-              </button>
-
-              <p className="text-gray-400 text-xs">
-                By submitting this form, you agree to our{" "}
-                <a href="/privacy" className="underline hover:text-gray-600">
-                  Privacy Policy
-                </a>
-              </p>
-            </form>
-          )}
+          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+            <a
+              href="mailto:yta@younglifemanagement.com"
+              style={{ display: "flex", alignItems: "center", gap: 16, color: "var(--mid)", textDecoration: "none", fontSize: 14, padding: "18px 22px", border: "1px solid var(--light-border)", background: "var(--paper)", transition: "border-color .2s, color .2s, background .2s", fontFamily: "var(--font-dm)" }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "var(--red)"; el.style.color = "var(--red)"; el.style.background = "#fff"; }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "var(--light-border)"; el.style.color = "var(--mid)"; el.style.background = "var(--paper)"; }}
+            >
+              <MailIcon />
+              yta@younglifemanagement.com
+            </a>
+            <a
+              href="https://instagram.com/yngtlntagency"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: "flex", alignItems: "center", gap: 16, color: "var(--mid)", textDecoration: "none", fontSize: 14, padding: "18px 22px", border: "1px solid var(--light-border)", background: "var(--paper)", transition: "border-color .2s, color .2s, background .2s", fontFamily: "var(--font-dm)" }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "var(--red)"; el.style.color = "var(--red)"; el.style.background = "#fff"; }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "var(--light-border)"; el.style.color = "var(--mid)"; el.style.background = "var(--paper)"; }}
+            >
+              <InstagramIcon />
+              @yngtlntagency
+            </a>
+          </div>
         </div>
 
-        {/* Right: Info card */}
-        <div
-          className="rounded-2xl p-8 text-white flex flex-col gap-6"
-          style={{
-            background: "linear-gradient(135deg, #111 0%, #1a0505 100%)",
-          }}
-        >
-          <div className="w-14 h-14 rounded-full bg-[#C8102E]/20 border border-[#C8102E]/30 flex items-center justify-center">
-            <Send className="w-6 h-6 text-[#C8102E]" />
-          </div>
-
-          <div>
-            <h3 className="text-white text-2xl font-bold leading-snug mb-4">
-              We&apos;re here for creators and brands.
-            </h3>
-            <div className="w-10 h-[3px] bg-[#C8102E] mb-4" />
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Have a question or just want to say hello? Reach out through any of the
-              channels below.
+        {/* Right — two cards */}
+        <div className="reveal" style={{ display: "flex", flexDirection: "column", gap: 16, justifyContent: "center" }}>
+          <div className="c-card">
+            <h3 style={{ fontFamily: "var(--font-bebas)", fontSize: 30, letterSpacing: "0.05em", color: "var(--ink)", marginBottom: 12 }}>For Brands</h3>
+            <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.65, marginBottom: 28, fontFamily: "var(--font-dm)" }}>
+              Looking to partner with our talent? Reach out with your campaign details and we&apos;ll connect you with the right fit.
             </p>
+            <a
+              href="mailto:yta@younglifemanagement.com"
+              style={{ background: "var(--ink)", color: "#fff", padding: "13px 30px", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontFamily: "var(--font-dm)", transition: "background .2s, transform .2s" }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = "var(--red)"; el.style.transform = "translateY(-1px)"; }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = "var(--ink)"; el.style.transform = ""; }}
+            >
+              Start a Partnership
+            </a>
           </div>
 
-          <div className="flex flex-col gap-0">
-            {CONTACT_ITEMS.map((item, i) => (
-              <div key={item.label}>
-                <div className="flex items-start gap-4 py-4">
-                  <div className="w-10 h-10 rounded-full border border-[#C8102E]/40 bg-[#C8102E]/10 flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-4 h-4 text-[#C8102E]" />
-                  </div>
-                  <div>
-                    <p className="text-white text-sm font-semibold">{item.label}</p>
-                    <p className="text-gray-400 text-sm mt-0.5 whitespace-pre-line">
-                      {item.value}
-                    </p>
-                  </div>
-                </div>
-                {i < CONTACT_ITEMS.length - 1 && (
-                  <div className="w-full h-px bg-white/5" />
-                )}
-              </div>
-            ))}
+          <div className="c-card">
+            <h3 style={{ fontFamily: "var(--font-bebas)", fontSize: 30, letterSpacing: "0.05em", color: "var(--ink)", marginBottom: 12 }}>For Talent</h3>
+            <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.65, marginBottom: 28, fontFamily: "var(--font-dm)" }}>
+              Are you a creator or athlete looking for representation? We work with talent at every stage. Send us your profile and let&apos;s talk.
+            </p>
+            <a
+              href="mailto:yta@younglifemanagement.com"
+              style={{ background: "var(--ink)", color: "#fff", padding: "13px 30px", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontFamily: "var(--font-dm)", transition: "background .2s, transform .2s" }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = "var(--red)"; el.style.transform = "translateY(-1px)"; }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = "var(--ink)"; el.style.transform = ""; }}
+            >
+              Join Our Roster
+            </a>
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .contact-grid-responsive { grid-template-columns: 1fr !important; gap: 48px !important; }
+        }
+      `}</style>
     </section>
   );
 }

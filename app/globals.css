@@ -1,22 +1,195 @@
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,800,900&display=swap');
+:root {
+  --red: #C8202A;
+  --red-dark: #9e181f;
+  --cream: #F7F4F0;
+  --paper: #EFEBE5;
+  --ink: #1a1714;
+  --mid: #7a7370;
+  --light-border: rgba(26, 23, 20, 0.1);
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
-
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
-  background-color: #F0EFED;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-dm), 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: none;
+}
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-bebas), sans-serif; font-weight: 400; }
+a, button { cursor: none; }
+
+/* ── CUSTOM CURSOR ── */
+#cur {
+  width: 10px; height: 10px;
+  background: var(--red);
+  border-radius: 50%;
+  position: fixed; pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width .18s, height .18s;
+  mix-blend-mode: multiply;
+}
+#cur-ring {
+  width: 38px; height: 38px;
+  border: 1.5px solid var(--red);
+  border-radius: 50%;
+  position: fixed; pointer-events: none; z-index: 9998;
+  transform: translate(-50%, -50%);
+  opacity: 0.45;
+  transition: width .2s, height .2s, opacity .2s;
+}
+body.hovering #cur { width: 22px; height: 22px; }
+body.hovering #cur-ring { width: 56px; height: 56px; opacity: 0.25; }
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(44px);
+  transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1);
+}
+.reveal.on { opacity: 1; transform: translateY(0); }
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1);
+}
+.reveal-left.on { opacity: 1; transform: translateX(0); }
+
+/* ── HERO ANIMATIONS ── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-eyebrow { opacity: 0; animation: slideUp .7s .1s forwards; }
+.hero-h1      { opacity: 0; animation: slideUp .7s .25s forwards; }
+.hero-sub     { opacity: 0; animation: slideUp .7s .4s forwards; }
+.hero-btns    { opacity: 0; animation: slideUp .7s .55s forwards; }
+
+/* ── TICKER ── */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Satoshi', sans-serif;
+/* ── BRAND MARQUEE ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-@keyframes scrollUp {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
+/* ── NAV LINK ── */
+.nav-ul-link {
+  position: relative;
+  color: var(--mid);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color .2s;
+  font-weight: 400;
+  font-family: var(--font-dm), sans-serif;
+}
+.nav-ul-link::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 1.5px; background: var(--red);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .25s;
+}
+.nav-ul-link:hover { color: var(--ink); }
+.nav-ul-link:hover::after { transform: scaleX(1); }
+
+/* ── SERVICE ROW ── */
+.svc-row {
+  display: grid;
+  grid-template-columns: 72px 1fr 56px;
+  align-items: center;
+  gap: 40px;
+  padding: 44px 0;
+  border-bottom: 1px solid var(--light-border);
+  position: relative;
+  transition: padding-left .3s;
+}
+.svc-row::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--red);
+  transform: scaleY(0); transform-origin: bottom;
+  transition: transform .35s ease;
+}
+.svc-row:hover { padding-left: 16px; }
+.svc-row:hover::before { transform: scaleY(1); }
+.svc-row:hover .svc-n { color: var(--red); opacity: 0.35; }
+.svc-row:hover .svc-arrow { opacity: 1 !important; transform: translateX(0) !important; }
+
+/* ── STAT TILE ── */
+.stat-tile {
+  background: var(--ink);
+  padding: 44px 36px;
+  position: relative;
+  overflow: hidden;
+}
+.stat-tile::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px; background: var(--red);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .4s ease;
+}
+.stat-tile:hover::after { transform: scaleX(1); }
+
+/* ── TALENT CARD ── */
+.talent-card {
+  background: var(--paper);
+  padding: 60px 52px;
+  border: 1px solid var(--light-border);
+  position: relative;
+  overflow: hidden;
+  transition: border-color .3s;
+}
+.talent-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 4px; background: var(--red);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .45s ease;
+}
+.talent-card:hover { border-color: rgba(200, 32, 42, 0.25); }
+.talent-card:hover::after { transform: scaleX(1); }
+
+/* ── CONTACT CARD ── */
+.c-card {
+  border: 1px solid var(--light-border);
+  padding: 44px 40px;
+  background: var(--paper);
+  position: relative;
+  overflow: hidden;
+  transition: border-color .3s, box-shadow .3s;
+}
+.c-card::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px; background: var(--red);
+  transform: scaleY(0); transform-origin: bottom;
+  transition: transform .35s ease;
+}
+.c-card:hover { border-color: rgba(200, 32, 42, 0.2); box-shadow: 0 8px 40px rgba(0,0,0,.06); }
+.c-card:hover::before { transform: scaleY(1); }
+
+/* ── BRAND MARQUEE ITEM ── */
+.m-item { transition: background .3s; }
+.m-item:hover { background: rgba(200, 32, 42, 0.08); }
+.m-item:hover .m-name { color: rgba(255,255,255,0.75); }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  .svc-row { grid-template-columns: 50px 1fr; padding: 32px 0; gap: 20px; }
+  .svc-arrow { display: none !important; }
+  .talent-card { padding: 40px 28px; }
 }
