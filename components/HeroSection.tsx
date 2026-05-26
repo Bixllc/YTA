@@ -70,7 +70,7 @@ export default function HeroSection() {
         alignItems: "center",
         padding: "100px 52px 88px",
         position: "relative",
-        overflow: "hidden",
+        overflow: "visible",
         background: "#fff",
       }}
     >
@@ -181,51 +181,55 @@ export default function HeroSection() {
         className="hero-phone-wrap"
         style={{
           position: "absolute",
-          right: 72,
-          top: 120,
+          right: 52,
+          top: 100,
           zIndex: 3,
+          padding: 32,               /* breathing room so shadow isn't clipped */
+          overflow: "visible",
+          filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.22))",
         }}
       >
-          {/* Ambient glow — behind the card */}
+          {/* Ambient red glow behind card */}
           <div style={{
             position: "absolute",
-            width: 520,
-            height: 520,
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(220,38,38,0.09) 0%, transparent 68%)",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-44%, -46%)",
-            filter: "blur(48px)",
+            inset: "10%",
+            background: "rgba(220,38,38,0.14)",
+            filter: "blur(80px)",
+            zIndex: -1,
             pointerEvents: "none",
-            zIndex: 0,
+            borderRadius: "50%",
           }} />
 
-          {/* Premium creator card */}
+          {/* Outer shell — overflow visible so shadow renders */}
+          <div style={{
+            position: "relative",
+            borderRadius: 32,
+            overflow: "visible",
+          }}>
+          {/* Inner card — overflow hidden for video clipping */}
           <div
             className="hero-phone"
             style={{
-              position: "relative",
-              zIndex: 1,
               width: 420,
               height: 660,
-              borderRadius: 28,
+              borderRadius: 32,
               background: "#d0d0d0",
               overflow: "hidden",
               border: "1px solid rgba(255,255,255,0.35)",
               boxShadow:
-                "0 20px 60px rgba(0,0,0,0.10), 0 8px 24px rgba(0,0,0,0.08)",
+                "0 35px 90px rgba(0,0,0,0.22), 0 12px 30px rgba(0,0,0,0.16)",
+              transform: "translateY(0px)",
               transition: "transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.transform = "translateY(-7px)";
+              (e.currentTarget as HTMLElement).style.transform = "translateY(-8px)";
               (e.currentTarget as HTMLElement).style.boxShadow =
-                "0 36px 80px rgba(0,0,0,0.14), 0 12px 32px rgba(0,0,0,0.10)";
+                "0 50px 110px rgba(0,0,0,0.28), 0 18px 40px rgba(0,0,0,0.18)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.transform = "";
+              (e.currentTarget as HTMLElement).style.transform = "translateY(0px)";
               (e.currentTarget as HTMLElement).style.boxShadow =
-                "0 20px 60px rgba(0,0,0,0.10), 0 8px 24px rgba(0,0,0,0.08)";
+                "0 35px 90px rgba(0,0,0,0.22), 0 12px 30px rgba(0,0,0,0.16)";
             }}
           >
             {/* Full-bleed video slides */}
@@ -267,7 +271,7 @@ export default function HeroSection() {
               );
             })}
 
-            {/* Top vignette — atmospheric, not UI */}
+            {/* Top vignette — atmospheric */}
             <div style={{
               position: "absolute", top: 0, left: 0, right: 0,
               height: 160,
@@ -275,11 +279,9 @@ export default function HeroSection() {
               zIndex: 10,
               pointerEvents: "none",
             }} />
-
-
-          </div>
-
-        </div>
+          </div>{/* end inner card */}
+          </div>{/* end outer shell */}
+        </div>{/* end hero-phone-wrap */}
 
       {/* Vertical red line */}
       <div style={{ position: "absolute", bottom: 0, left: 52,
