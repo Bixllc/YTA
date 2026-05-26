@@ -181,34 +181,51 @@ export default function HeroSection() {
         className="hero-phone-wrap"
         style={{
           position: "absolute",
-          right: 80,
-          top: 130,
+          right: 72,
+          top: 120,
           zIndex: 3,
         }}
       >
-          {/* Editorial content card */}
+          {/* Ambient glow — behind the card */}
+          <div style={{
+            position: "absolute",
+            width: 520,
+            height: 520,
+            borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(220,38,38,0.09) 0%, transparent 68%)",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-44%, -46%)",
+            filter: "blur(48px)",
+            pointerEvents: "none",
+            zIndex: 0,
+          }} />
+
+          {/* Premium creator card */}
           <div
             className="hero-phone"
             style={{
-              width: 400,
-              height: 640,
-              borderRadius: 28,
-              background: "#e8e8e8",
               position: "relative",
+              zIndex: 1,
+              width: 420,
+              height: 660,
+              borderRadius: 28,
+              background: "#d0d0d0",
               overflow: "hidden",
-              border: "1.5px solid rgba(0,0,0,0.06)",
-              boxShadow: "0 32px 80px rgba(0,0,0,0.13), 0 8px 24px rgba(0,0,0,0.07)",
+              border: "1px solid rgba(255,255,255,0.35)",
+              boxShadow:
+                "0 20px 60px rgba(0,0,0,0.10), 0 8px 24px rgba(0,0,0,0.08)",
               transition: "transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)";
+              (e.currentTarget as HTMLElement).style.transform = "translateY(-7px)";
               (e.currentTarget as HTMLElement).style.boxShadow =
-                "0 44px 100px rgba(0,0,0,0.16), 0 12px 32px rgba(0,0,0,0.09)";
+                "0 36px 80px rgba(0,0,0,0.14), 0 12px 32px rgba(0,0,0,0.10)";
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLElement).style.transform = "";
               (e.currentTarget as HTMLElement).style.boxShadow =
-                "0 32px 80px rgba(0,0,0,0.13), 0 8px 24px rgba(0,0,0,0.07)";
+                "0 20px 60px rgba(0,0,0,0.10), 0 8px 24px rgba(0,0,0,0.08)";
             }}
           >
             {/* Full-bleed video slides */}
@@ -227,7 +244,7 @@ export default function HeroSection() {
                     inset: 0,
                     transform: `translateX(${translateX})`,
                     transition: isActive || isPrev
-                      ? "transform 0.78s cubic-bezier(.16,1,.3,1)"
+                      ? "transform 0.82s cubic-bezier(.16,1,.3,1)"
                       : "none",
                     zIndex: isActive ? 2 : isPrev ? 1 : 0,
                   }}
@@ -238,72 +255,98 @@ export default function HeroSection() {
                     muted
                     loop
                     playsInline
-                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      display: "block",
+                      filter: "contrast(1.06) brightness(0.92) saturate(1.10)",
+                    }}
                   />
                 </div>
               );
             })}
 
-            {/* Top gradient — keeps top area readable */}
+            {/* Top vignette — atmospheric, not UI */}
             <div style={{
               position: "absolute", top: 0, left: 0, right: 0,
-              height: 120,
-              background: "linear-gradient(to bottom, rgba(0,0,0,0.30) 0%, transparent 100%)",
+              height: 160,
+              background: "linear-gradient(to bottom, rgba(0,0,0,0.28) 0%, transparent 100%)",
               zIndex: 10,
               pointerEvents: "none",
             }} />
 
-            {/* Bottom gradient + caption */}
+            {/* Minimal creator identity — top left, very subtle */}
+            <div style={{
+              position: "absolute", top: 22, left: 20,
+              display: "flex", alignItems: "center", gap: 8,
+              zIndex: 11,
+            }}>
+              {/* Avatar dot */}
+              <div style={{
+                width: 28, height: 28, borderRadius: "50%",
+                background: "var(--red)",
+                border: "1.5px solid rgba(255,255,255,0.55)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                flexShrink: 0,
+              }}>
+                <span style={{ fontSize: 9, fontWeight: 700, color: "#fff", fontFamily: "var(--font-dm)", letterSpacing: "0.02em" }}>YT</span>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                  <span style={{ fontSize: 11, fontWeight: 500, color: "rgba(255,255,255,0.88)", fontFamily: "var(--font-dm)", letterSpacing: "0.01em" }}>
+                    yngtlntagency
+                  </span>
+                  {/* Verified */}
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" fill="#3b9eff" opacity="0.9"/>
+                    <path d="M8 12l3 3 5-5" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <span style={{ fontSize: 10, color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-dm)" }}>
+                  Just now
+                </span>
+              </div>
+            </div>
+
+            {/* Bottom vignette + minimal branding */}
             <div style={{
               position: "absolute", bottom: 0, left: 0, right: 0,
-              padding: "48px 24px 24px",
-              background: "linear-gradient(to top, rgba(0,0,0,0.52) 0%, transparent 100%)",
+              padding: "80px 22px 26px",
+              background: "linear-gradient(to top, rgba(0,0,0,0.50) 0%, transparent 100%)",
               zIndex: 10,
               pointerEvents: "none",
             }}>
-              {/* Red accent line */}
-              <div style={{ width: 28, height: 2, background: "var(--red)", marginBottom: 10 }} />
-              <p style={{
-                fontFamily: "var(--font-dm)",
-                fontSize: 12,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.75)",
-                margin: 0,
-              }}>
-                Young Talent Agency
-              </p>
-            </div>
-
-            {/* Slide indicator — thin lines at top */}
-            <div style={{
-              position: "absolute", top: 12, left: 16, right: 16,
-              display: "flex", gap: 4, zIndex: 20,
-            }}>
-              {SLIDES.map((_, i) => (
-                <div key={i} style={{
-                  flex: 1, height: 2, borderRadius: 1,
-                  background: activeSlide === i ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.3)",
-                  transition: "background .4s",
-                }} />
-              ))}
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <div style={{ width: 20, height: 1.5, background: "var(--red)", opacity: 0.85 }} />
+                <span style={{
+                  fontFamily: "var(--font-dm)",
+                  fontSize: 11,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.55)",
+                }}>
+                  Creator Management
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* Social proof tag — floats below card */}
+          {/* Floating social proof pill */}
           <div style={{
-            marginTop: 20,
-            display: "flex", alignItems: "center", gap: 10,
-            padding: "10px 16px",
-            background: "#fff",
-            border: "1px solid rgba(0,0,0,0.07)",
+            marginTop: 18,
+            display: "flex", alignItems: "center", gap: 8,
+            padding: "9px 18px",
+            background: "rgba(255,255,255,0.9)",
+            backdropFilter: "blur(12px)",
+            border: "1px solid rgba(0,0,0,0.06)",
             borderRadius: 100,
-            boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
             width: "fit-content",
           }}>
-            <div style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--red)" }} />
-            <span style={{ fontFamily: "var(--font-dm)", fontSize: 12, color: "var(--mid)", letterSpacing: "0.04em" }}>
-              9+ Brand Partners &nbsp;·&nbsp; 45K+ Creator Reach
+            <div style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--red)" }} />
+            <span style={{ fontFamily: "var(--font-dm)", fontSize: 12, color: "var(--mid)", letterSpacing: "0.03em" }}>
+              9+ Brand Partners&nbsp;&nbsp;·&nbsp;&nbsp;45K+ Creator Reach
             </span>
           </div>
         </div>
