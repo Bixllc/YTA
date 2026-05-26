@@ -197,18 +197,18 @@ export default function HeroSection() {
               position: "relative",
               overflow: "hidden",
               boxShadow:
-                "-16px 24px 64px rgba(0,0,0,0.13), 0 8px 24px rgba(0,0,0,0.08)",
+                "-32px 32px 80px rgba(0,0,0,0.18), -8px 8px 24px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)",
               transition: "transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s",
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLElement).style.transform = "translateY(-8px)";
               (e.currentTarget as HTMLElement).style.boxShadow =
-                "-20px 36px 80px rgba(0,0,0,0.18), 0 12px 32px rgba(0,0,0,0.10)";
+                "-40px 44px 100px rgba(0,0,0,0.22), -10px 10px 30px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06)";
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLElement).style.transform = "";
               (e.currentTarget as HTMLElement).style.boxShadow =
-                "-16px 24px 64px rgba(0,0,0,0.13), 0 8px 24px rgba(0,0,0,0.08)";
+                "-32px 32px 80px rgba(0,0,0,0.18), -8px 8px 24px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)";
             }}
           >
             {/* Slides — full bleed video */}
