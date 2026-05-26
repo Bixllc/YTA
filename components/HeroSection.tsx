@@ -186,58 +186,82 @@ export default function HeroSection() {
           zIndex: 3,
           padding: 32,               /* breathing room so shadow isn't clipped */
           overflow: "visible",
-          filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.22))",
         }}
       >
-          {/* Ambient red glow behind card */}
+          {/* Ambient red glow — behind and beneath card */}
           <div style={{
             position: "absolute",
             inset: "10%",
-            background: "rgba(220,38,38,0.14)",
+            background: "rgba(220,38,38,0.13)",
             filter: "blur(80px)",
             zIndex: -1,
             pointerEvents: "none",
             borderRadius: "50%",
           }} />
 
-          {/* Outer shell — overflow visible so shadow renders */}
+          {/* Hard ground shadow directly under card */}
           <div style={{
-            position: "relative",
-            borderRadius: 32,
-            overflow: "visible",
-          }}>
-          {/* Card — NO overflow:hidden so shadow is never clipped */}
+            position: "absolute",
+            bottom: -20,
+            left: "8%",
+            right: "8%",
+            height: 60,
+            background: "rgba(0,0,0,0.22)",
+            filter: "blur(32px)",
+            borderRadius: "50%",
+            zIndex: -1,
+            pointerEvents: "none",
+          }} />
+
+          {/* Card — NO overflow:hidden so box-shadow renders freely */}
           <div
             className="hero-phone"
             style={{
-              width: 420,
-              height: 660,
-              borderRadius: 32,
+              width: 440,
+              height: 680,
+              borderRadius: 26,
               position: "relative",
-              border: "1px solid rgba(255,255,255,0.35)",
-              boxShadow:
-                "0 35px 90px rgba(0,0,0,0.22), 0 12px 30px rgba(0,0,0,0.16)",
+              border: "2px solid rgba(255,255,255,0.75)",
+              boxShadow: [
+                "inset 0 0 0 1px rgba(255,255,255,0.35)",
+                "0 2px 4px rgba(0,0,0,0.04)",
+                "0 12px 28px rgba(0,0,0,0.18)",
+                "0 28px 70px rgba(0,0,0,0.28)",
+                "0 60px 120px rgba(0,0,0,0.20)",
+              ].join(", "),
               transform: "translateY(0px)",
               transition: "transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.transform = "translateY(-8px)";
-              (e.currentTarget as HTMLElement).style.boxShadow =
-                "0 50px 110px rgba(0,0,0,0.28), 0 18px 40px rgba(0,0,0,0.18)";
+              const el = e.currentTarget as HTMLElement;
+              el.style.transform = "translateY(-10px)";
+              el.style.boxShadow = [
+                "inset 0 0 0 1px rgba(255,255,255,0.35)",
+                "0 2px 4px rgba(0,0,0,0.04)",
+                "0 18px 40px rgba(0,0,0,0.22)",
+                "0 40px 90px rgba(0,0,0,0.32)",
+                "0 80px 140px rgba(0,0,0,0.22)",
+              ].join(", ");
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.transform = "translateY(0px)";
-              (e.currentTarget as HTMLElement).style.boxShadow =
-                "0 35px 90px rgba(0,0,0,0.22), 0 12px 30px rgba(0,0,0,0.16)";
+              const el = e.currentTarget as HTMLElement;
+              el.style.transform = "translateY(0px)";
+              el.style.boxShadow = [
+                "inset 0 0 0 1px rgba(255,255,255,0.35)",
+                "0 2px 4px rgba(0,0,0,0.04)",
+                "0 12px 28px rgba(0,0,0,0.18)",
+                "0 28px 70px rgba(0,0,0,0.28)",
+                "0 60px 120px rgba(0,0,0,0.20)",
+              ].join(", ");
             }}
           >
-            {/* Video clip container — overflow:hidden only here, not on the card */}
+            {/* Video clip container — overflow:hidden isolated here only */}
             <div style={{
               position: "absolute",
               inset: 0,
-              borderRadius: 32,
+              borderRadius: 24,
               overflow: "hidden",
-              background: "#d0d0d0",
+              background: "#c8c8c8",
             }}>
               {SLIDES.map((slide, i) => {
                 const isActive = i === activeSlide;
@@ -270,7 +294,7 @@ export default function HeroSection() {
                         height: "100%",
                         objectFit: "cover",
                         display: "block",
-                        filter: "contrast(1.06) brightness(0.92) saturate(1.10)",
+                        filter: "contrast(1.12) brightness(0.90) saturate(1.18)",
                       }}
                     />
                   </div>
@@ -280,15 +304,23 @@ export default function HeroSection() {
               {/* Top vignette */}
               <div style={{
                 position: "absolute", top: 0, left: 0, right: 0,
-                height: 160,
-                background: "linear-gradient(to bottom, rgba(0,0,0,0.28) 0%, transparent 100%)",
+                height: 180,
+                background: "linear-gradient(to bottom, rgba(0,0,0,0.32) 0%, transparent 100%)",
+                zIndex: 10,
+                pointerEvents: "none",
+              }} />
+
+              {/* Bottom vignette — grounds the image */}
+              <div style={{
+                position: "absolute", bottom: 0, left: 0, right: 0,
+                height: 140,
+                background: "linear-gradient(to top, rgba(0,0,0,0.38) 0%, transparent 100%)",
                 zIndex: 10,
                 pointerEvents: "none",
               }} />
             </div>{/* end video clip container */}
           </div>{/* end card */}
-          </div>{/* end outer shell */}
-        </div>{/* end hero-phone-wrap */}
+      </div>{/* end hero-phone-wrap */}
 
       {/* Vertical red line */}
       <div style={{ position: "absolute", bottom: 0, left: 52,
