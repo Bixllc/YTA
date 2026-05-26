@@ -58,7 +58,7 @@ export default function HeroSection() {
         padding: "0 52px 88px",
         paddingTop: 100,
         position: "relative", overflow: "hidden",
-        background: "var(--cream)",
+        background: "#fff",
       }}
     >
       {/* Noise */}
@@ -66,27 +66,6 @@ export default function HeroSection() {
         ref={canvasRef}
         style={{ position: "absolute", inset: 0, opacity: 0.035, pointerEvents: "none" }}
       />
-
-      {/* Floating "TALENT" word */}
-      <div
-        style={{
-          position: "absolute",
-          fontFamily: "var(--font-bebas)",
-          fontSize: "clamp(180px, 22vw, 320px)",
-          lineHeight: 1,
-          color: "transparent",
-          WebkitTextStroke: "1px rgba(200,32,42,0.12)",
-          letterSpacing: "0.02em",
-          top: "50%", left: "50%",
-          transform: `translate(calc(-50% + ${parallax.x}px), calc(-50% + ${parallax.y}px))`,
-          pointerEvents: "none",
-          userSelect: "none",
-          whiteSpace: "nowrap",
-          transition: "transform 0.1s ease-out",
-        }}
-      >
-        TALENT
-      </div>
 
       {/* Content */}
       <div style={{ position: "relative", zIndex: 2, maxWidth: 980 }}>
@@ -101,8 +80,7 @@ export default function HeroSection() {
             marginBottom: 36,
           }}
         >
-          We Handle<br />
-          The{" "}
+          We Handle the{" "}
           <em
             style={{
               fontFamily: "var(--font-instrument)",
@@ -114,7 +92,7 @@ export default function HeroSection() {
             Business.
           </em>
           <br />
-          You Create.
+          You Focus on the Content.
         </h1>
 
         <p
@@ -125,7 +103,7 @@ export default function HeroSection() {
             fontFamily: "var(--font-dm)",
           }}
         >
-          Young Talent Agency represents creators and athletes — managing the business side of their brand so they can do what they do best.
+          Young Talent Agency represents creators, managing the business side of their brand so they can do what they do best, create.
         </p>
 
         <div className="hero-btns" style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
@@ -143,7 +121,7 @@ export default function HeroSection() {
               textDecoration: "none", display: "inline-block",
               transition: "border-color .2s, transform .2s, background .2s, color .2s",
             }}
-            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "var(--ink)"; el.style.background = "var(--ink)"; el.style.color = "var(--cream)"; el.style.transform = "translateY(-2px)"; }}
+            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "var(--ink)"; el.style.background = "var(--ink)"; el.style.color = "#fff"; el.style.transform = "translateY(-2px)"; }}
             onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "rgba(26,23,20,0.3)"; el.style.background = "transparent"; el.style.color = "var(--ink)"; el.style.transform = ""; }}
           >
             Meet Our Talent

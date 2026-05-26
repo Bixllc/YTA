@@ -71,7 +71,7 @@ export default function Navbar() {
           className={`md:hidden nav-burger ${drawerOpen ? "open" : ""}`}
           onClick={() => setDrawerOpen((v) => !v)}
           aria-label="Toggle menu"
-          style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: 5, width: 40, height: 40, background: "none", border: "none", padding: 4, zIndex: 400 }}
+          style={{ flexDirection: "column", justifyContent: "center", alignItems: "center", gap: 5, width: 40, height: 40, background: "none", border: "none", padding: 4, zIndex: 400 }}
         >
           <span style={{ display: "block", width: 24, height: 2, background: "var(--ink)", borderRadius: 2, transition: "transform .3s, opacity .3s", transform: drawerOpen ? "translateY(7px) rotate(45deg)" : "" }} />
           <span style={{ display: "block", height: 2, background: "var(--ink)", borderRadius: 2, transition: "transform .3s, opacity .3s, width .3s", opacity: drawerOpen ? 0 : 1, width: drawerOpen ? 0 : 24 }} />
