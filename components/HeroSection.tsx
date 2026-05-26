@@ -110,7 +110,7 @@ export default function HeroSection() {
           style={{
             fontFamily: "var(--font-dm), 'DM Sans', sans-serif",
             fontWeight: 300,
-            fontSize: "clamp(38px, 5.2vw, 72px)",
+            fontSize: "clamp(34px, 3.8vw, 56px)",
             lineHeight: 1.1,
             letterSpacing: "-0.025em",
             color: "var(--ink)",
@@ -348,10 +348,7 @@ export default function HeroSection() {
         .btn-red-yta:hover::before { transform: translateX(0); }
         .btn-red-yta span { position: relative; z-index: 1; }
 
-        .hero-br-mobile { display: none; }
-        @media (max-width: 900px) {
-          .hero-br-mobile { display: block; }
-        }
+        .hero-br-mobile { display: block; }
         @media (max-width: 768px) {
           #hero {
             flex-direction: column !important;
