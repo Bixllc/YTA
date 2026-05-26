@@ -19,19 +19,19 @@ export default function BrandsSection() {
       {/* Marquee */}
       <div style={{ overflow: "hidden", position: "relative" }}>
         {/* Edge fades */}
-        <div style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: 150, background: "linear-gradient(to right, var(--ink), transparent)", zIndex: 2, pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: 150, background: "linear-gradient(to left, var(--ink), transparent)", zIndex: 2, pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: "min(150px, 15vw)", background: "linear-gradient(to right, var(--ink), transparent)", zIndex: 2, pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "min(150px, 15vw)", background: "linear-gradient(to left, var(--ink), transparent)", zIndex: 2, pointerEvents: "none" }} />
 
         <div style={{ display: "flex", animation: "marquee 30s linear infinite", width: "max-content" }}>
           {doubled.map((name, i) => (
             <div
               key={i}
               className="m-item"
-              style={{ padding: "44px 72px", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", flexShrink: 0 }}
+              style={{ padding: "36px 48px", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", flexShrink: 0 }}
             >
               <span
                 className="m-name"
-                style={{ fontFamily: "var(--font-bebas)", fontSize: 20, letterSpacing: "0.12em", color: "rgba(255,255,255,0.28)", whiteSpace: "nowrap", transition: "color .3s" }}
+                style={{ fontFamily: "var(--font-bebas)", fontSize: 18, letterSpacing: "0.12em", color: "rgba(255,255,255,0.28)", whiteSpace: "nowrap", transition: "color .3s" }}
               >
                 {name}
               </span>
@@ -39,6 +39,14 @@ export default function BrandsSection() {
           ))}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          #brands { padding: 80px 0 !important; }
+          #brands .reveal { padding: 0 20px !important; margin-bottom: 48px !important; }
+          .m-item { padding: 24px 32px !important; }
+        }
+      `}</style>
     </section>
   );
 }

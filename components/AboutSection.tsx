@@ -44,6 +44,9 @@ export default function AboutSection() {
         @media (max-width: 768px) {
           .about-responsive-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
         }
+        @media (max-width: 480px) {
+          .about-responsive-grid { gap: 36px !important; }
+        }
       `}</style>
     </section>
   );

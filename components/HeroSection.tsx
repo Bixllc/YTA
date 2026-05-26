@@ -348,6 +348,16 @@ export default function HeroSection() {
 
         @media (max-width: 768px) {
           .hero-phone-wrap { display: none !important; }
+          #hero {
+            flex-direction: column !important;
+            padding-top: 120px !important;
+            padding-bottom: 64px !important;
+            min-height: auto !important;
+          }
+          #hero > div:first-of-type {
+            flex: unset !important;
+            max-width: 100% !important;
+          }
         }
       `}</style>
     </section>

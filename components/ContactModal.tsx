@@ -115,7 +115,7 @@ export default function ContactModal() {
           maxWidth: 520,
           maxHeight: "90vh",
           overflowY: "auto",
-          padding: "52px 48px 48px",
+          padding: "clamp(28px, 6vw, 52px) clamp(20px, 5vw, 48px) clamp(24px, 5vw, 48px)",
           position: "relative",
           animation: "slideUp .28s cubic-bezier(.16,1,.3,1)",
         }}
@@ -172,13 +172,13 @@ export default function ContactModal() {
 
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 18 }}>
               {/* Name + Email */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+              <div className="modal-field-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
                 <Field label="Name" name="name" type="text" placeholder="Your full name" value={form.name} onChange={handleChange} required />
                 <Field label="Email" name="email" type="email" placeholder="your@email.com" value={form.email} onChange={handleChange} required />
               </div>
 
               {/* Phone + Context */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+              <div className="modal-field-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
                 <Field label="Phone" name="phone" type="tel" placeholder="+1 (555) 000-0000" value={form.phone} onChange={handleChange} />
                 <Field label={cfg.contextLabel} name="context" type="text" placeholder={cfg.contextPlaceholder} value={form.context} onChange={handleChange} />
               </div>
@@ -234,8 +234,8 @@ export default function ContactModal() {
       <style>{`
         @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(24px) } to { opacity: 1; transform: translateY(0) } }
-        @media (max-width: 600px) {
-          .contact-modal-grid { grid-template-columns: 1fr !important; }
+        @media (max-width: 540px) {
+          .modal-field-row { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </div>

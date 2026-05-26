@@ -127,7 +127,7 @@ function TalentCard({ t, index }: { t: typeof TALENT[0]; index: number }) {
         {t.badge}
       </span>
 
-      <h3 style={{ fontFamily: "var(--font-bebas)", fontSize: 52, lineHeight: 0.92, letterSpacing: "0.02em", color: "var(--ink)", marginBottom: 10, whiteSpace: "pre-line" }}>
+      <h3 style={{ fontFamily: "var(--font-bebas)", fontSize: "clamp(36px, 8vw, 52px)", lineHeight: 0.92, letterSpacing: "0.02em", color: "var(--ink)", marginBottom: 10, whiteSpace: "pre-line" }}>
         {t.name}
       </h3>
 
@@ -169,7 +169,9 @@ export default function RosterSection() {
       <style>{`
         @media (max-width: 768px) {
           .roster-grid-responsive { grid-template-columns: 1fr !important; }
-          #roster { padding: 80px 24px !important; }
+        }
+        @media (max-width: 480px) {
+          .roster-grid-responsive { gap: 24px !important; }
         }
       `}</style>
     </section>

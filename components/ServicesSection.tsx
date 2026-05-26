@@ -38,7 +38,7 @@ export default function ServicesSection() {
               Our<br />Services
             </h2>
           </div>
-          <p style={{ maxWidth: 380, fontSize: 15, lineHeight: 1.7, color: "var(--mid)", fontFamily: "var(--font-dm)" }}>
+          <p style={{ maxWidth: "min(380px, 100%)", fontSize: 15, lineHeight: 1.7, color: "var(--mid)", fontFamily: "var(--font-dm)" }}>
             From first contact to final delivery, we manage every step of the partnership process.
           </p>
         </div>
@@ -61,7 +61,7 @@ export default function ServicesSection() {
                 <h3 style={{ fontFamily: "var(--font-bebas)", fontSize: 30, letterSpacing: "0.04em", color: "var(--ink)", marginBottom: 8 }}>
                   {s.title}
                 </h3>
-                <p style={{ fontSize: 14, lineHeight: 1.65, color: "var(--mid)", maxWidth: 580, fontFamily: "var(--font-dm)" }}>
+                <p style={{ fontSize: 14, lineHeight: 1.65, color: "var(--mid)", maxWidth: "min(580px, 100%)", fontFamily: "var(--font-dm)" }}>
                   {s.desc}
                 </p>
               </div>
