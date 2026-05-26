@@ -181,37 +181,37 @@ export default function HeroSection() {
         className="hero-phone-wrap"
         style={{
           position: "absolute",
-          right: 220,
-          top: 160,
+          right: 80,
+          top: 130,
           zIndex: 3,
         }}
       >
-          {/* Phone frame — white card style */}
+          {/* Editorial content card */}
           <div
             className="hero-phone"
             style={{
-              width: 270,
-              height: 560,
-              borderRadius: 40,
-              background: "#fff",
+              width: 400,
+              height: 640,
+              borderRadius: 28,
+              background: "#e8e8e8",
               position: "relative",
               overflow: "hidden",
-              boxShadow:
-                "0 20px 60px rgba(0,0,0,0.14), 0 6px 20px rgba(0,0,0,0.08)",
-              transition: "transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s",
+              border: "1.5px solid rgba(0,0,0,0.06)",
+              boxShadow: "0 32px 80px rgba(0,0,0,0.13), 0 8px 24px rgba(0,0,0,0.07)",
+              transition: "transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.transform = "translateY(-8px)";
+              (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)";
               (e.currentTarget as HTMLElement).style.boxShadow =
-                "0 28px 80px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.10)";
+                "0 44px 100px rgba(0,0,0,0.16), 0 12px 32px rgba(0,0,0,0.09)";
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLElement).style.transform = "";
               (e.currentTarget as HTMLElement).style.boxShadow =
-                "0 20px 60px rgba(0,0,0,0.14), 0 6px 20px rgba(0,0,0,0.08)";
+                "0 32px 80px rgba(0,0,0,0.13), 0 8px 24px rgba(0,0,0,0.07)";
             }}
           >
-            {/* Slides — full bleed video */}
+            {/* Full-bleed video slides */}
             {SLIDES.map((slide, i) => {
               const isActive = i === activeSlide;
               const isPrev = i === prev;
@@ -227,10 +227,9 @@ export default function HeroSection() {
                     inset: 0,
                     transform: `translateX(${translateX})`,
                     transition: isActive || isPrev
-                      ? "transform 0.72s cubic-bezier(.16,1,.3,1)"
+                      ? "transform 0.78s cubic-bezier(.16,1,.3,1)"
                       : "none",
                     zIndex: isActive ? 2 : isPrev ? 1 : 0,
-                    background: "#f0f0f0",
                   }}
                 >
                   <video
@@ -245,16 +244,67 @@ export default function HeroSection() {
               );
             })}
 
-
-            {/* Dynamic island */}
+            {/* Top gradient — keeps top area readable */}
             <div style={{
-              position: "absolute", top: 14, left: "50%",
-              transform: "translateX(-50%)",
-              width: 80, height: 24, borderRadius: 12,
-              background: "#000",
-              zIndex: 20,
+              position: "absolute", top: 0, left: 0, right: 0,
+              height: 120,
+              background: "linear-gradient(to bottom, rgba(0,0,0,0.30) 0%, transparent 100%)",
+              zIndex: 10,
+              pointerEvents: "none",
             }} />
 
+            {/* Bottom gradient + caption */}
+            <div style={{
+              position: "absolute", bottom: 0, left: 0, right: 0,
+              padding: "48px 24px 24px",
+              background: "linear-gradient(to top, rgba(0,0,0,0.52) 0%, transparent 100%)",
+              zIndex: 10,
+              pointerEvents: "none",
+            }}>
+              {/* Red accent line */}
+              <div style={{ width: 28, height: 2, background: "var(--red)", marginBottom: 10 }} />
+              <p style={{
+                fontFamily: "var(--font-dm)",
+                fontSize: 12,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.75)",
+                margin: 0,
+              }}>
+                Young Talent Agency
+              </p>
+            </div>
+
+            {/* Slide indicator — thin lines at top */}
+            <div style={{
+              position: "absolute", top: 12, left: 16, right: 16,
+              display: "flex", gap: 4, zIndex: 20,
+            }}>
+              {SLIDES.map((_, i) => (
+                <div key={i} style={{
+                  flex: 1, height: 2, borderRadius: 1,
+                  background: activeSlide === i ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.3)",
+                  transition: "background .4s",
+                }} />
+              ))}
+            </div>
+          </div>
+
+          {/* Social proof tag — floats below card */}
+          <div style={{
+            marginTop: 20,
+            display: "flex", alignItems: "center", gap: 10,
+            padding: "10px 16px",
+            background: "#fff",
+            border: "1px solid rgba(0,0,0,0.07)",
+            borderRadius: 100,
+            boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
+            width: "fit-content",
+          }}>
+            <div style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--red)" }} />
+            <span style={{ fontFamily: "var(--font-dm)", fontSize: 12, color: "var(--mid)", letterSpacing: "0.04em" }}>
+              9+ Brand Partners &nbsp;·&nbsp; 45K+ Creator Reach
+            </span>
           </div>
         </div>
 
