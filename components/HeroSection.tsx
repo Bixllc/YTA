@@ -205,7 +205,7 @@ export default function HeroSection() {
             height: 610,
             borderRadius: 26,
             position: "relative",
-            border: "1px solid rgba(0,0,0,0.07)",
+            border: "none",
             boxShadow: [
               "rgba(61,61,61,0.72) 0px 0.6px 1.08px -1.25px",
               "rgba(61,61,61,0.48) 0px 2.29px 4.12px -2.5px",
