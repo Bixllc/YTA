@@ -1,9 +1,8 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function HeroSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [parallax, setParallax] = useState({ x: 0, y: 0 });
 
   // Noise canvas
   useEffect(() => {
@@ -40,18 +39,9 @@ export default function HeroSection() {
     };
   }, []);
 
-  // Parallax on mouse move
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    const { width, height, left, top } = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - left - width / 2) / width) * 28;
-    const y = ((e.clientY - top - height / 2) / height) * 14;
-    setParallax({ x, y });
-  };
-
   return (
     <section
       id="hero"
-      onMouseMove={handleMouseMove}
       style={{
         minHeight: "100vh",
         display: "flex", flexDirection: "column", justifyContent: "flex-end",
