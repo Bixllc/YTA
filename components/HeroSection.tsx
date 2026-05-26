@@ -193,6 +193,7 @@ export default function HeroSection() {
           position: "relative",
           zIndex: 3,
           padding: "40px 24px",
+          paddingTop: 100,
           overflow: "visible",
         }}
       >
@@ -204,20 +205,38 @@ export default function HeroSection() {
             height: 550,
             borderRadius: 26,
             position: "relative",
-            border: "1px solid rgba(0,0,0,0.06)",
-            boxShadow: "0 28px 55px rgba(0,0,0,0.22), 0 10px 18px rgba(0,0,0,0.12)",
+            border: "none",
+            boxShadow: [
+              "0 3px 0 rgba(0,0,0,0.20)",
+              "0 7px 0 rgba(0,0,0,0.10)",
+              "0 14px 0 rgba(0,0,0,0.05)",
+              "0 22px 45px rgba(0,0,0,0.32)",
+              "0 50px 90px rgba(0,0,0,0.20)",
+            ].join(", "),
             transform: "translateY(0px)",
             transition: "transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s",
           }}
           onMouseEnter={(e) => {
             const el = e.currentTarget as HTMLElement;
             el.style.transform = "translateY(-8px)";
-            el.style.boxShadow = "0 40px 70px rgba(0,0,0,0.26), 0 14px 24px rgba(0,0,0,0.14)";
+            el.style.boxShadow = [
+              "0 3px 0 rgba(0,0,0,0.20)",
+              "0 7px 0 rgba(0,0,0,0.10)",
+              "0 14px 0 rgba(0,0,0,0.05)",
+              "0 32px 60px rgba(0,0,0,0.36)",
+              "0 65px 110px rgba(0,0,0,0.24)",
+            ].join(", ");
           }}
           onMouseLeave={(e) => {
             const el = e.currentTarget as HTMLElement;
             el.style.transform = "translateY(0px)";
-            el.style.boxShadow = "0 28px 55px rgba(0,0,0,0.22), 0 10px 18px rgba(0,0,0,0.12)";
+            el.style.boxShadow = [
+              "0 3px 0 rgba(0,0,0,0.20)",
+              "0 7px 0 rgba(0,0,0,0.10)",
+              "0 14px 0 rgba(0,0,0,0.05)",
+              "0 22px 45px rgba(0,0,0,0.32)",
+              "0 50px 90px rgba(0,0,0,0.20)",
+            ].join(", ");
           }}
         >
           {/* Video clip container — overflow:hidden isolated here only */}
