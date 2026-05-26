@@ -83,6 +83,7 @@ export default function HeroSection() {
 
       {/* Left column — 55% */}
       <div
+        className="hero-left-col"
         style={{
           position: "relative",
           zIndex: 2,
@@ -349,15 +350,17 @@ export default function HeroSection() {
         @media (max-width: 768px) {
           .hero-phone-wrap { display: none !important; }
           #hero {
-            flex-direction: column !important;
-            padding-top: 120px !important;
-            padding-bottom: 64px !important;
+            padding: 120px 24px 64px !important;
             min-height: auto !important;
           }
-          #hero > div:first-of-type {
-            flex: unset !important;
+          .hero-left-col {
+            flex: 0 0 100% !important;
             max-width: 100% !important;
+            width: 100% !important;
           }
+        }
+        @media (max-width: 480px) {
+          #hero { padding: 110px 16px 56px !important; }
         }
       `}</style>
     </section>

@@ -40,7 +40,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop links */}
-        <ul style={{ display: "flex", alignItems: "center", gap: 36, listStyle: "none" }} className="hidden md:flex">
+        <ul style={{ alignItems: "center", gap: 36, listStyle: "none" }} className="hidden md:flex">
           {LINKS.map((l) => (
             <li key={l.label}>
               <a href={l.href} className="nav-ul-link">{l.label}</a>
