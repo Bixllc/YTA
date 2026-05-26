@@ -13,7 +13,7 @@ const TALENT = [
     ),
     name: "Dr. Jade\nTroi Mc",
     handle: "@jadetroi — Instagram & TikTok",
-    bio: "A Jamaican lifestyle creator known for her vibrant personality and authentic content spanning Caribbean culture, wellness, and everyday life. An ideal partner for lifestyle, beauty, travel, and culture-forward brands.",
+    bio: "A Jamaican lifestyle creator known for her vibrant personality and authentic content spanning Caribbean culture, wellness, and everyday life. With a highly engaged audience across Instagram and TikTok, she is an ideal partner for lifestyle, beauty, travel, and culture-forward brands.",
     stats: [
       { n: "20.8K", l: "Instagram" },
       { n: "24.9K", l: "TikTok" },
@@ -32,7 +32,7 @@ const TALENT = [
     ),
     name: 'Darius\n"Dash" Weathers',
     handle: "@coach.dashjumps — Instagram",
-    bio: "An NCAA All-American track and field athlete specializing in long jump and triple jump. As both a competitive athlete and founder of Dash Elite Training, Dash brings credibility and influence in the sports performance space.",
+    bio: "An NCAA All-American track and field athlete specializing in long jump and triple jump. As both a competitive athlete and the founder of Dash Elite Training, Dash brings credibility and influence in the sports performance and athletic development space. He is an ideal partner for sports, fitness, and athletic brands looking for authentic representation.",
     stats: [
       { n: "9.1K", l: "Instagram" },
       { n: "NCAA", l: "All-American" },

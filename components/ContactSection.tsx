@@ -23,14 +23,14 @@ export default function ContactSection() {
         {/* Left */}
         <div className="reveal-left">
           <p style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--red)", marginBottom: 18, fontFamily: "var(--font-dm)" }}>
-            Let&apos;s Connect
+            Let's Connect
           </p>
           <h2 style={{ fontFamily: "var(--font-bebas)", fontSize: "clamp(52px, 6vw, 86px)", lineHeight: 0.93, letterSpacing: "0.015em", color: "var(--ink)", marginBottom: 28 }}>
             Work<br />With Us
           </h2>
           <div style={{ width: 36, height: 3, background: "var(--red)", marginBottom: 32 }} />
           <p style={{ fontSize: 17, lineHeight: 1.75, color: "var(--mid)", marginBottom: 52, fontFamily: "var(--font-dm)" }}>
-            Whether you&apos;re a brand looking to partner with our talent, or a creator ready for representation — we want to hear from you.
+            Whether you're a brand looking to partner with our talent, or a creator ready for representation — we want to hear from you.
           </p>
 
           <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
@@ -62,7 +62,7 @@ export default function ContactSection() {
           <div className="c-card">
             <h3 style={{ fontFamily: "var(--font-bebas)", fontSize: 30, letterSpacing: "0.05em", color: "var(--ink)", marginBottom: 12 }}>For Brands</h3>
             <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.65, marginBottom: 28, fontFamily: "var(--font-dm)" }}>
-              Looking to partner with our talent? Reach out with your campaign details and we&apos;ll connect you with the right fit.
+              Looking to partner with our talent? We'd love to hear from you. Reach out with your campaign details and we'll connect you with the right fit.
             </p>
             <button
               onClick={() => window.dispatchEvent(new CustomEvent("open-contact", { detail: { type: "brand" } }))}
@@ -77,7 +77,7 @@ export default function ContactSection() {
           <div className="c-card">
             <h3 style={{ fontFamily: "var(--font-bebas)", fontSize: 30, letterSpacing: "0.05em", color: "var(--ink)", marginBottom: 12 }}>For Talent</h3>
             <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.65, marginBottom: 28, fontFamily: "var(--font-dm)" }}>
-              Are you a creator or athlete looking for representation? We work with talent at every stage. Send us your profile and let&apos;s talk.
+              Are you a creator or athlete looking for representation? We work with talent at every stage. Send us your profile and let's talk.
             </p>
             <button
               onClick={() => window.dispatchEvent(new CustomEvent("open-contact", { detail: { type: "talent" } }))}

@@ -12,7 +12,7 @@ export default function BrandsSection() {
           Partnerships
         </p>
         <h2 style={{ fontFamily: "var(--font-bebas)", fontSize: "clamp(52px, 6vw, 86px)", lineHeight: 0.93, letterSpacing: "0.015em", color: "#fff" }}>
-          Brands We&apos;ve<br />Worked With
+          Brands We've<br />Worked With
         </h2>
       </div>
 
