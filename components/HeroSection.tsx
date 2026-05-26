@@ -185,33 +185,16 @@ export default function HeroSection() {
         style={{
           position: "absolute",
           right: 52,
-          top: "50%",
-          transform: "translateY(-50%)",
+          top: 100,
           zIndex: 3,
         }}
       >
-          {/* Glow */}
-          <div
-            style={{
-              position: "absolute",
-              width: 320,
-              height: 240,
-              background: "radial-gradient(ellipse, rgba(200,32,42,0.15) 0%, transparent 70%)",
-              bottom: -60,
-              left: "50%",
-              transform: "translateX(-50%)",
-              borderRadius: "50%",
-              filter: "blur(28px)",
-              pointerEvents: "none",
-            }}
-          />
-
           {/* Phone frame */}
           <div
             className="hero-phone"
             style={{
-              width: 340,
-              height: 700,
+              width: 270,
+              height: 560,
               borderRadius: 46,
               background: "#0d0d0d",
               position: "relative",
