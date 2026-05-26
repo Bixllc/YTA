@@ -118,6 +118,7 @@ export default function HeroSection() {
           }}
         >
           We Handle the{" "}
+          <br className="hero-br-mobile" />
           <span style={{ color: "var(--red)", fontWeight: 300 }}>Business.</span>
           <br />
           You Focus on the{" "}
@@ -347,6 +348,10 @@ export default function HeroSection() {
         .btn-red-yta:hover::before { transform: translateX(0); }
         .btn-red-yta span { position: relative; z-index: 1; }
 
+        .hero-br-mobile { display: none; }
+        @media (max-width: 900px) {
+          .hero-br-mobile { display: block; }
+        }
         @media (max-width: 768px) {
           #hero {
             flex-direction: column !important;
