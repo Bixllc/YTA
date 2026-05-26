@@ -189,32 +189,32 @@ export default function HeroSection() {
           zIndex: 3,
         }}
       >
-          {/* Phone frame */}
+          {/* Phone frame — white card style */}
           <div
             className="hero-phone"
             style={{
               width: 270,
               height: 560,
-              borderRadius: 46,
-              background: "#0d0d0d",
+              borderRadius: 40,
+              background: "#fff",
               position: "relative",
               overflow: "hidden",
               boxShadow:
-                "0 40px 80px rgba(0,0,0,0.20), 0 12px 32px rgba(0,0,0,0.12), inset 0 0 0 1.5px rgba(255,255,255,0.10)",
+                "-16px 24px 64px rgba(0,0,0,0.13), 0 8px 24px rgba(0,0,0,0.08)",
               transition: "transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s",
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLElement).style.transform = "translateY(-8px)";
               (e.currentTarget as HTMLElement).style.boxShadow =
-                "0 56px 100px rgba(0,0,0,0.26), 0 20px 40px rgba(0,0,0,0.14), inset 0 0 0 1.5px rgba(255,255,255,0.10)";
+                "-20px 36px 80px rgba(0,0,0,0.18), 0 12px 32px rgba(0,0,0,0.10)";
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLElement).style.transform = "";
               (e.currentTarget as HTMLElement).style.boxShadow =
-                "0 40px 80px rgba(0,0,0,0.20), 0 12px 32px rgba(0,0,0,0.12), inset 0 0 0 1.5px rgba(255,255,255,0.10)";
+                "-16px 24px 64px rgba(0,0,0,0.13), 0 8px 24px rgba(0,0,0,0.08)";
             }}
           >
-            {/* Slides */}
+            {/* Slides — full bleed */}
             {SLIDES.map((slide, i) => {
               const isActive = i === activeSlide;
               const isPrev = i === prev;
@@ -229,91 +229,65 @@ export default function HeroSection() {
                     position: "absolute",
                     inset: 0,
                     background: slide.bg,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
                     transform: `translateX(${translateX})`,
                     transition: isActive || isPrev
                       ? "transform 0.72s cubic-bezier(.16,1,.3,1)"
                       : "none",
                     zIndex: isActive ? 2 : isPrev ? 1 : 0,
                   }}
-                >
-                  {/* Placeholder content */}
-                  <div style={{ textAlign: "center", padding: "0 28px" }}>
-                    <div
-                      style={{
-                        width: 48,
-                        height: 48,
-                        borderRadius: "50%",
-                        background: "rgba(255,255,255,0.12)",
-                        margin: "0 auto 16px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)">
-                        <polygon points="5,3 19,12 5,21" />
-                      </svg>
-                    </div>
-                    <p
-                      style={{
-                        fontFamily: "var(--font-dm)",
-                        fontSize: 12,
-                        letterSpacing: "0.12em",
-                        textTransform: "uppercase",
-                        color: "rgba(255,255,255,0.45)",
-                      }}
-                    >
-                      {slide.label}
-                    </p>
-                  </div>
-                </div>
+                />
               );
             })}
 
-            {/* Status bar top */}
+            {/* Story header overlay */}
             <div
               style={{
                 position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                height: 52,
-                background: "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 100%)",
+                top: 0, left: 0, right: 0,
                 zIndex: 10,
-                display: "flex",
-                alignItems: "flex-start",
-                justifyContent: "center",
-                paddingTop: 16,
+                padding: "52px 14px 0",
+                background: "linear-gradient(to bottom, rgba(0,0,0,0.42) 0%, transparent 100%)",
               }}
             >
-              {/* Dynamic island */}
-              <div
-                style={{
-                  width: 88,
-                  height: 26,
-                  borderRadius: 13,
-                  background: "#000",
-                  boxShadow: "0 0 0 1px rgba(255,255,255,0.06)",
-                }}
-              />
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                {/* Left: avatar + name + time */}
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  {/* Avatar */}
+                  <div style={{
+                    width: 32, height: 32, borderRadius: "50%",
+                    background: "var(--red)",
+                    border: "2px solid rgba(255,255,255,0.8)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    flexShrink: 0,
+                  }}>
+                    <span style={{ fontSize: 11, fontWeight: 700, color: "#fff", fontFamily: "var(--font-dm)" }}>YT</span>
+                  </div>
+                  {/* Name + verified + time */}
+                  <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                    <span style={{ fontSize: 12, fontWeight: 600, color: "#fff", fontFamily: "var(--font-dm)" }}>yngtlntagency</span>
+                    {/* Blue verified */}
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#3b9eff">
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#3b9eff" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <span style={{ fontSize: 11, color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-dm)" }}>2hr</span>
+                  </div>
+                </div>
+                {/* Right: ··· and ✕ */}
+                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <span style={{ fontSize: 16, color: "rgba(255,255,255,0.85)", letterSpacing: 1 }}>···</span>
+                  <span style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", fontFamily: "var(--font-dm)" }}>✕</span>
+                </div>
+              </div>
             </div>
 
-            {/* Side button glow (right edge) */}
-            <div
-              style={{
-                position: "absolute",
-                right: -1,
-                top: 120,
-                width: 3,
-                height: 60,
-                background: "rgba(255,255,255,0.08)",
-                borderRadius: "0 2px 2px 0",
-                zIndex: 20,
-              }}
-            />
+            {/* Dynamic island */}
+            <div style={{
+              position: "absolute", top: 14, left: "50%",
+              transform: "translateX(-50%)",
+              width: 80, height: 24, borderRadius: 12,
+              background: "#000",
+              zIndex: 20,
+            }} />
 
           </div>
         </div>
