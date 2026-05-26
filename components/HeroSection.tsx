@@ -83,21 +83,14 @@ export default function HeroSection() {
         style={{ position: "absolute", inset: 0, opacity: 0.03, pointerEvents: "none" }}
       />
 
-      {/* Two-col */}
+      {/* Left content */}
       <div
-        className="hero-grid"
         style={{
           position: "relative",
           zIndex: 2,
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 60,
+          maxWidth: 580,
         }}
       >
-        {/* ── LEFT: copy ── */}
-        <div style={{ flex: "1 1 auto", maxWidth: 560 }}>
           <p
             className="hero-eyebrow"
             style={{
@@ -184,23 +177,31 @@ export default function HeroSection() {
               Meet Our Talent
             </a>
           </div>
-        </div>
+      </div>
 
-        {/* ── RIGHT: Phone mockup ── */}
-        <div
-          className="hero-phone-wrap"
-          style={{ flex: "0 0 auto", display: "flex", alignItems: "center", justifyContent: "center" }}
-        >
-          {/* Glow beneath phone */}
+      {/* ── RIGHT: Phone mockup — absolutely positioned ── */}
+      <div
+        className="hero-phone-wrap"
+        style={{
+          position: "absolute",
+          right: 52,
+          top: "50%",
+          transform: "translateY(-50%)",
+          zIndex: 3,
+        }}
+      >
+          {/* Glow */}
           <div
             style={{
               position: "absolute",
-              width: 280,
-              height: 200,
-              background: "radial-gradient(ellipse, rgba(200,32,42,0.18) 0%, transparent 70%)",
+              width: 320,
+              height: 240,
+              background: "radial-gradient(ellipse, rgba(200,32,42,0.15) 0%, transparent 70%)",
               bottom: -60,
+              left: "50%",
+              transform: "translateX(-50%)",
               borderRadius: "50%",
-              filter: "blur(20px)",
+              filter: "blur(28px)",
               pointerEvents: "none",
             }}
           />
@@ -209,8 +210,8 @@ export default function HeroSection() {
           <div
             className="hero-phone"
             style={{
-              width: 290,
-              height: 600,
+              width: 340,
+              height: 700,
               borderRadius: 46,
               background: "#0d0d0d",
               position: "relative",
@@ -360,14 +361,9 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
-      </div>
 
       {/* Vertical red line */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 52,
+      <div style={{ position: "absolute", bottom: 0, left: 52,
           width: 1,
           height: 80,
           background: "linear-gradient(to bottom, var(--red), transparent)",
@@ -394,11 +390,10 @@ export default function HeroSection() {
         .btn-red-yta:hover::before { transform: translateX(0); }
         .btn-red-yta span { position: relative; z-index: 1; }
 
-        @media (max-width: 900px) {
-          .hero-grid { flex-direction: column !important; align-items: flex-start !important; }
-          .hero-phone-wrap { width: 100%; justify-content: center !important; margin-top: 48px; }
+        @media (max-width: 1024px) {
+          .hero-phone-wrap { right: 24px !important; }
         }
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
           .hero-phone-wrap { display: none !important; }
         }
       `}</style>
