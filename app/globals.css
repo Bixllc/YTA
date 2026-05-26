@@ -191,5 +191,14 @@ body.hovering #cur-ring { width: 56px; height: 56px; opacity: 0.25; }
 @media (max-width: 768px) {
   .svc-row { grid-template-columns: 50px 1fr; padding: 32px 0; gap: 20px; }
   .svc-arrow { display: none !important; }
-  .talent-card { padding: 40px 28px; }
+  .talent-card { padding: 32px 20px; }
+}
+
+/* ── RESPONSIVE SECTION PADDING ── */
+@media (max-width: 768px) {
+  section { padding-left: 24px !important; padding-right: 24px !important; }
+  nav { padding-left: 20px !important; padding-right: 20px !important; }
+}
+@media (max-width: 480px) {
+  section { padding-left: 16px !important; padding-right: 16px !important; }
 }

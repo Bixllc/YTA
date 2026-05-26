@@ -36,7 +36,7 @@ export default function Navbar() {
       >
         {/* Logo */}
         <a href="#" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-          <Image src="/logo.png" alt="Young Talent Agency" height={46} width={120} style={{ height: 46, width: "auto", objectFit: "contain" }} />
+          <Image src="/logo.png" alt="Young Talent Agency" height={46} width={120} style={{ height: 46, width: "auto", objectFit: "contain" }} priority />
         </a>
 
         {/* Desktop links */}
