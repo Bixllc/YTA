@@ -206,15 +206,14 @@ export default function HeroSection() {
             borderRadius: 32,
             overflow: "visible",
           }}>
-          {/* Inner card — overflow hidden for video clipping */}
+          {/* Card — NO overflow:hidden so shadow is never clipped */}
           <div
             className="hero-phone"
             style={{
               width: 420,
               height: 660,
               borderRadius: 32,
-              background: "#d0d0d0",
-              overflow: "hidden",
+              position: "relative",
               border: "1px solid rgba(255,255,255,0.35)",
               boxShadow:
                 "0 35px 90px rgba(0,0,0,0.22), 0 12px 30px rgba(0,0,0,0.16)",
@@ -232,54 +231,62 @@ export default function HeroSection() {
                 "0 35px 90px rgba(0,0,0,0.22), 0 12px 30px rgba(0,0,0,0.16)";
             }}
           >
-            {/* Full-bleed video slides */}
-            {SLIDES.map((slide, i) => {
-              const isActive = i === activeSlide;
-              const isPrev = i === prev;
-              let translateX = "100%";
-              if (isActive) translateX = "0%";
-              else if (isPrev) translateX = `${-100 * dir}%`;
-
-              return (
-                <div
-                  key={i}
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    transform: `translateX(${translateX})`,
-                    transition: isActive || isPrev
-                      ? "transform 0.82s cubic-bezier(.16,1,.3,1)"
-                      : "none",
-                    zIndex: isActive ? 2 : isPrev ? 1 : 0,
-                  }}
-                >
-                  <video
-                    src={slide.src}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      display: "block",
-                      filter: "contrast(1.06) brightness(0.92) saturate(1.10)",
-                    }}
-                  />
-                </div>
-              );
-            })}
-
-            {/* Top vignette — atmospheric */}
+            {/* Video clip container — overflow:hidden only here, not on the card */}
             <div style={{
-              position: "absolute", top: 0, left: 0, right: 0,
-              height: 160,
-              background: "linear-gradient(to bottom, rgba(0,0,0,0.28) 0%, transparent 100%)",
-              zIndex: 10,
-              pointerEvents: "none",
-            }} />
-          </div>{/* end inner card */}
+              position: "absolute",
+              inset: 0,
+              borderRadius: 32,
+              overflow: "hidden",
+              background: "#d0d0d0",
+            }}>
+              {SLIDES.map((slide, i) => {
+                const isActive = i === activeSlide;
+                const isPrev = i === prev;
+                let translateX = "100%";
+                if (isActive) translateX = "0%";
+                else if (isPrev) translateX = `${-100 * dir}%`;
+
+                return (
+                  <div
+                    key={i}
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      transform: `translateX(${translateX})`,
+                      transition: isActive || isPrev
+                        ? "transform 0.82s cubic-bezier(.16,1,.3,1)"
+                        : "none",
+                      zIndex: isActive ? 2 : isPrev ? 1 : 0,
+                    }}
+                  >
+                    <video
+                      src={slide.src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        display: "block",
+                        filter: "contrast(1.06) brightness(0.92) saturate(1.10)",
+                      }}
+                    />
+                  </div>
+                );
+              })}
+
+              {/* Top vignette */}
+              <div style={{
+                position: "absolute", top: 0, left: 0, right: 0,
+                height: 160,
+                background: "linear-gradient(to bottom, rgba(0,0,0,0.28) 0%, transparent 100%)",
+                zIndex: 10,
+                pointerEvents: "none",
+              }} />
+            </div>{/* end video clip container */}
+          </div>{/* end card */}
           </div>{/* end outer shell */}
         </div>{/* end hero-phone-wrap */}
 
