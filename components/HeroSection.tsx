@@ -184,7 +184,7 @@ export default function HeroSection() {
         className="hero-phone-wrap"
         style={{
           position: "absolute",
-          right: 120,
+          right: 220,
           top: 160,
           zIndex: 3,
         }}
@@ -218,9 +218,9 @@ export default function HeroSection() {
             {SLIDES.map((slide, i) => {
               const isActive = i === activeSlide;
               const isPrev = i === prev;
-              let translateY = "100%";
-              if (isActive) translateY = "0%";
-              else if (isPrev) translateY = `${-100 * dir}%`;
+              let translateX = "100%";
+              if (isActive) translateX = "0%";
+              else if (isPrev) translateX = `${-100 * dir}%`;
 
               return (
                 <div
@@ -232,7 +232,7 @@ export default function HeroSection() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    transform: `translateY(${translateY})`,
+                    transform: `translateX(${translateX})`,
                     transition: isActive || isPrev
                       ? "transform 0.72s cubic-bezier(.16,1,.3,1)"
                       : "none",
@@ -315,33 +315,6 @@ export default function HeroSection() {
               }}
             />
 
-            {/* Bottom progress pills */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: 22,
-                left: 0,
-                right: 0,
-                display: "flex",
-                justifyContent: "center",
-                gap: 5,
-                zIndex: 10,
-              }}
-            >
-              {SLIDES.map((_, i) => (
-                <div
-                  key={i}
-                  style={{
-                    width: activeSlide === i ? 22 : 6,
-                    height: 6,
-                    borderRadius: 3,
-                    background:
-                      activeSlide === i ? "var(--red)" : "rgba(255,255,255,0.3)",
-                    transition: "width .45s cubic-bezier(.16,1,.3,1), background .3s",
-                  }}
-                />
-              ))}
-            </div>
           </div>
         </div>
 
