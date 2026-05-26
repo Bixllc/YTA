@@ -245,46 +245,6 @@ export default function HeroSection() {
               );
             })}
 
-            {/* Story header overlay */}
-            <div
-              style={{
-                position: "absolute",
-                top: 0, left: 0, right: 0,
-                zIndex: 10,
-                padding: "52px 14px 0",
-                background: "linear-gradient(to bottom, rgba(0,0,0,0.42) 0%, transparent 100%)",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                {/* Left: avatar + name + time */}
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  {/* Avatar */}
-                  <div style={{
-                    width: 32, height: 32, borderRadius: "50%",
-                    background: "var(--red)",
-                    border: "2px solid rgba(255,255,255,0.8)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    flexShrink: 0,
-                  }}>
-                    <span style={{ fontSize: 11, fontWeight: 700, color: "#fff", fontFamily: "var(--font-dm)" }}>YT</span>
-                  </div>
-                  {/* Name + verified + time */}
-                  <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
-                    <span style={{ fontSize: 12, fontWeight: 600, color: "#fff", fontFamily: "var(--font-dm)" }}>yngtlntagency</span>
-                    {/* Blue verified */}
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#3b9eff">
-                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#3b9eff" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    <span style={{ fontSize: 11, color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-dm)" }}>2hr</span>
-                  </div>
-                </div>
-                {/* Right: ··· and ✕ */}
-                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                  <span style={{ fontSize: 16, color: "rgba(255,255,255,0.85)", letterSpacing: 1 }}>···</span>
-                  <span style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", fontFamily: "var(--font-dm)" }}>✕</span>
-                </div>
-              </div>
-            </div>
 
             {/* Dynamic island */}
             <div style={{
