@@ -184,8 +184,8 @@ export default function HeroSection() {
         className="hero-phone-wrap"
         style={{
           position: "absolute",
-          right: 52,
-          top: 100,
+          right: 120,
+          top: 160,
           zIndex: 3,
         }}
       >
