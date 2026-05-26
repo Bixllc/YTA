@@ -197,18 +197,18 @@ export default function HeroSection() {
               position: "relative",
               overflow: "hidden",
               boxShadow:
-                "-32px 32px 80px rgba(0,0,0,0.18), -8px 8px 24px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)",
+                "0 20px 60px rgba(0,0,0,0.14), 0 6px 20px rgba(0,0,0,0.08)",
               transition: "transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s",
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLElement).style.transform = "translateY(-8px)";
               (e.currentTarget as HTMLElement).style.boxShadow =
-                "-40px 44px 100px rgba(0,0,0,0.22), -10px 10px 30px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06)";
+                "0 28px 80px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.10)";
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLElement).style.transform = "";
               (e.currentTarget as HTMLElement).style.boxShadow =
-                "-32px 32px 80px rgba(0,0,0,0.18), -8px 8px 24px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)";
+                "0 20px 60px rgba(0,0,0,0.14), 0 6px 20px rgba(0,0,0,0.08)";
             }}
           >
             {/* Slides — full bleed video */}
@@ -230,7 +230,7 @@ export default function HeroSection() {
                       ? "transform 0.72s cubic-bezier(.16,1,.3,1)"
                       : "none",
                     zIndex: isActive ? 2 : isPrev ? 1 : 0,
-                    background: "#111",
+                    background: "#f0f0f0",
                   }}
                 >
                   <video
