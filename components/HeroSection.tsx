@@ -206,19 +206,49 @@ export default function HeroSection() {
             borderRadius: 26,
             position: "relative",
             border: "1px solid rgba(0,0,0,0.07)",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.14), 0 20px 50px rgba(0,0,0,0.34), 0 55px 120px rgba(0,0,0,0.28)",
+            boxShadow: [
+              "rgba(61,61,61,0.72) 0px 0.6px 1.08px -1.25px",
+              "rgba(61,61,61,0.48) 0px 2.29px 4.12px -2.5px",
+              "rgba(61,61,61,0.25) 0px 10px 18px -3.75px",
+              "rgba(0,0,0,0.35) 0px 0.71px 0.71px -0.58px",
+              "rgba(0,0,0,0.34) 0px 1.81px 1.81px -1.17px",
+              "rgba(0,0,0,0.33) 0px 3.62px 3.62px -1.75px",
+              "rgba(0,0,0,0.30) 0px 6.87px 6.87px -2.33px",
+              "rgba(0,0,0,0.26) 0px 13.65px 13.65px -2.92px",
+              "rgba(0,0,0,0.15) 0px 30px 30px -3.5px",
+            ].join(", "),
             transform: "translateY(0px)",
             transition: "transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s",
           }}
           onMouseEnter={(e) => {
             const el = e.currentTarget as HTMLElement;
             el.style.transform = "translateY(-8px)";
-            el.style.boxShadow = "0 2px 8px rgba(0,0,0,0.14), 0 28px 65px rgba(0,0,0,0.38), 0 70px 140px rgba(0,0,0,0.30)";
+            el.style.boxShadow = [
+              "rgba(61,61,61,0.72) 0px 0.6px 1.08px -1.25px",
+              "rgba(61,61,61,0.48) 0px 2.29px 4.12px -2.5px",
+              "rgba(61,61,61,0.25) 0px 10px 18px -3.75px",
+              "rgba(0,0,0,0.40) 0px 0.71px 0.71px -0.58px",
+              "rgba(0,0,0,0.38) 0px 1.81px 1.81px -1.17px",
+              "rgba(0,0,0,0.36) 0px 3.62px 3.62px -1.75px",
+              "rgba(0,0,0,0.33) 0px 6.87px 6.87px -2.33px",
+              "rgba(0,0,0,0.28) 0px 13.65px 13.65px -2.92px",
+              "rgba(0,0,0,0.18) 0px 30px 30px -3.5px",
+            ].join(", ");
           }}
           onMouseLeave={(e) => {
             const el = e.currentTarget as HTMLElement;
             el.style.transform = "translateY(0px)";
-            el.style.boxShadow = "0 2px 8px rgba(0,0,0,0.14), 0 20px 50px rgba(0,0,0,0.34), 0 55px 120px rgba(0,0,0,0.28)";
+            el.style.boxShadow = [
+              "rgba(61,61,61,0.72) 0px 0.6px 1.08px -1.25px",
+              "rgba(61,61,61,0.48) 0px 2.29px 4.12px -2.5px",
+              "rgba(61,61,61,0.25) 0px 10px 18px -3.75px",
+              "rgba(0,0,0,0.35) 0px 0.71px 0.71px -0.58px",
+              "rgba(0,0,0,0.34) 0px 1.81px 1.81px -1.17px",
+              "rgba(0,0,0,0.33) 0px 3.62px 3.62px -1.75px",
+              "rgba(0,0,0,0.30) 0px 6.87px 6.87px -2.33px",
+              "rgba(0,0,0,0.26) 0px 13.65px 13.65px -2.92px",
+              "rgba(0,0,0,0.15) 0px 30px 30px -3.5px",
+            ].join(", ");
           }}
         >
           {/* Video clip container — overflow:hidden isolated here only */}
