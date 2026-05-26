@@ -19,9 +19,9 @@ export default function AboutSection() {
           </h2>
           <div style={{ width: 36, height: 3, background: "var(--red)", marginBottom: 32 }} />
           <div style={{ fontSize: 16, lineHeight: 1.85, color: "var(--mid)", fontFamily: "var(--font-dm)" }}>
-            <p>We started Young Talent Agency because we love the business side of the creator world. Negotiating deals, advocating for talent, and making sure the people we represent are valued and protected — that's what drives us. We're not just middlemen. We're in your corner, fighting for what you're worth and making sure every opportunity that comes your way works in your favor.</p>
-            <p style={{ marginTop: 18 }}>We believe that every creator deserves someone who genuinely cares about their growth and their business, someone who takes the time to understand their brand and advocates for them like it's personal. Because for us, it is.</p>
-            <p style={{ marginTop: 18 }}>Whether you're a full-time creator or someone building something on the side, we're here to handle the business so you can focus on what you're good at and make sure you're compensated fairly along the way.</p>
+            <p>We started Young Talent Agency because we love the business side of the creator world. Negotiating deals, advocating for talent, and making sure the people we represent are valued and protected — that&apos;s what drives us. We&apos;re not just middlemen. We&apos;re in your corner, fighting for what you&apos;re worth and making sure every opportunity that comes your way works in your favor.</p>
+            <p style={{ marginTop: 18 }}>We believe that every creator deserves someone who genuinely cares about their growth and their business, someone who takes the time to understand their brand and advocates for them like it&apos;s personal. Because for us, it is.</p>
+            <p style={{ marginTop: 18 }}>Whether you&apos;re a full-time creator or someone building something on the side, we&apos;re here to handle the business so you can focus on what you&apos;re good at and make sure you&apos;re compensated fairly along the way.</p>
           </div>
         </div>
 
