@@ -348,8 +348,9 @@ export default function HeroSection() {
         .btn-red-yta span { position: relative; z-index: 1; }
 
         @media (max-width: 768px) {
-          .hero-phone-wrap { display: none !important; }
           #hero {
+            flex-direction: column !important;
+            align-items: center !important;
             padding: 120px 24px 64px !important;
             min-height: auto !important;
           }
@@ -358,9 +359,22 @@ export default function HeroSection() {
             max-width: 100% !important;
             width: 100% !important;
           }
+          .hero-phone-wrap {
+            flex: unset !important;
+            max-width: 100% !important;
+            width: 100% !important;
+            padding: 40px 0 0 !important;
+            justify-content: center !important;
+            display: flex !important;
+          }
+          .hero-phone {
+            width: 280px !important;
+            height: 440px !important;
+          }
         }
         @media (max-width: 480px) {
           #hero { padding: 110px 16px 56px !important; }
+          .hero-phone { width: 240px !important; height: 380px !important; }
         }
       `}</style>
     </section>
