@@ -1,12 +1,9 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-// Replace these with real video paths once you drop mp4s into public/videos/
 const SLIDES = [
-  { type: "placeholder", bg: "linear-gradient(160deg, #1a0f10 0%, #3d1010 50%, #C8202A 100%)", label: "Brand Partnerships" },
-  { type: "placeholder", bg: "linear-gradient(160deg, #0f1020 0%, #1a1050 50%, #3040a0 100%)", label: "Creator Growth" },
-  { type: "placeholder", bg: "linear-gradient(160deg, #0f1a10 0%, #103020 50%, #205030 100%)", label: "Deal Negotiation" },
-  { type: "placeholder", bg: "linear-gradient(160deg, #1a1410 0%, #352510 50%, #C8202A 100%)", label: "Athlete Management" },
+  { type: "video", src: "/videos/reel1.mp4" },
+  { type: "video", src: "/videos/reel2.mp4" },
 ];
 
 export default function HeroSection() {
@@ -214,7 +211,7 @@ export default function HeroSection() {
                 "-16px 24px 64px rgba(0,0,0,0.13), 0 8px 24px rgba(0,0,0,0.08)";
             }}
           >
-            {/* Slides — full bleed */}
+            {/* Slides — full bleed video */}
             {SLIDES.map((slide, i) => {
               const isActive = i === activeSlide;
               const isPrev = i === prev;
@@ -228,14 +225,23 @@ export default function HeroSection() {
                   style={{
                     position: "absolute",
                     inset: 0,
-                    background: slide.bg,
                     transform: `translateX(${translateX})`,
                     transition: isActive || isPrev
                       ? "transform 0.72s cubic-bezier(.16,1,.3,1)"
                       : "none",
                     zIndex: isActive ? 2 : isPrev ? 1 : 0,
+                    background: "#111",
                   }}
-                />
+                >
+                  <video
+                    src={slide.src}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                  />
+                </div>
               );
             })}
 
