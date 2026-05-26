@@ -353,12 +353,16 @@ export default function HeroSection() {
             align-items: center !important;
             padding: 120px 24px 64px !important;
             min-height: auto !important;
+            text-align: center !important;
           }
           .hero-left-col {
             flex: 0 0 100% !important;
             max-width: 100% !important;
             width: 100% !important;
           }
+          .hero-sub { max-width: 100% !important; margin-left: auto !important; margin-right: auto !important; }
+          .hero-btns { justify-content: center !important; flex-wrap: nowrap !important; }
+          .hero-btns a, .hero-btns button { flex: 1 !important; text-align: center !important; padding-left: 16px !important; padding-right: 16px !important; }
           .hero-phone-wrap {
             flex: unset !important;
             max-width: 100% !important;
