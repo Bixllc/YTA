@@ -206,19 +206,19 @@ export default function HeroSection() {
             borderRadius: 26,
             position: "relative",
             border: "1px solid rgba(0,0,0,0.07)",
-            boxShadow: "0 8px 16px rgba(0,0,0,0.10), 0 24px 56px rgba(0,0,0,0.22)",
+            boxShadow: "0 2px 6px rgba(0,0,0,0.12), 0 16px 40px rgba(0,0,0,0.28), 0 40px 100px rgba(0,0,0,0.22)",
             transform: "translateY(0px)",
             transition: "transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s",
           }}
           onMouseEnter={(e) => {
             const el = e.currentTarget as HTMLElement;
             el.style.transform = "translateY(-8px)";
-            el.style.boxShadow = "0 12px 24px rgba(0,0,0,0.12), 0 36px 72px rgba(0,0,0,0.26)";
+            el.style.boxShadow = "0 2px 6px rgba(0,0,0,0.12), 0 24px 55px rgba(0,0,0,0.32), 0 55px 120px rgba(0,0,0,0.26)";
           }}
           onMouseLeave={(e) => {
             const el = e.currentTarget as HTMLElement;
             el.style.transform = "translateY(0px)";
-            el.style.boxShadow = "0 8px 16px rgba(0,0,0,0.10), 0 24px 56px rgba(0,0,0,0.22)";
+            el.style.boxShadow = "0 2px 6px rgba(0,0,0,0.12), 0 16px 40px rgba(0,0,0,0.28), 0 40px 100px rgba(0,0,0,0.22)";
           }}
         >
           {/* Video clip container — overflow:hidden isolated here only */}
