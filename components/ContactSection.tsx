@@ -64,14 +64,14 @@ export default function ContactSection() {
             <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.65, marginBottom: 28, fontFamily: "var(--font-dm)" }}>
               Looking to partner with our talent? Reach out with your campaign details and we&apos;ll connect you with the right fit.
             </p>
-            <a
-              href="mailto:yta@younglifemanagement.com"
-              style={{ background: "var(--ink)", color: "#fff", padding: "13px 30px", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontFamily: "var(--font-dm)", transition: "background .2s, transform .2s" }}
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("open-contact", { detail: { type: "brand" } }))}
+              style={{ background: "var(--ink)", color: "#fff", padding: "13px 30px", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", border: "none", fontFamily: "var(--font-dm)", transition: "background .2s, transform .2s" }}
               onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = "var(--red)"; el.style.transform = "translateY(-1px)"; }}
               onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = "var(--ink)"; el.style.transform = ""; }}
             >
               Start a Partnership
-            </a>
+            </button>
           </div>
 
           <div className="c-card">
@@ -79,14 +79,14 @@ export default function ContactSection() {
             <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.65, marginBottom: 28, fontFamily: "var(--font-dm)" }}>
               Are you a creator or athlete looking for representation? We work with talent at every stage. Send us your profile and let&apos;s talk.
             </p>
-            <a
-              href="mailto:yta@younglifemanagement.com"
-              style={{ background: "var(--ink)", color: "#fff", padding: "13px 30px", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none", display: "inline-block", fontFamily: "var(--font-dm)", transition: "background .2s, transform .2s" }}
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("open-contact", { detail: { type: "talent" } }))}
+              style={{ background: "var(--ink)", color: "#fff", padding: "13px 30px", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", border: "none", fontFamily: "var(--font-dm)", transition: "background .2s, transform .2s" }}
               onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = "var(--red)"; el.style.transform = "translateY(-1px)"; }}
               onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = "var(--ink)"; el.style.transform = ""; }}
             >
               Join Our Roster
-            </a>
+            </button>
           </div>
         </div>
       </div>

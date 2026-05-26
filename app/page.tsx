@@ -7,6 +7,7 @@ import RosterSection from "@/components/RosterSection";
 import BrandsSection from "@/components/BrandsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import ContactModal from "@/components/ContactModal";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <BrandsSection />
       <ContactSection />
       <Footer />
+      <ContactModal />
     </main>
   );
 }

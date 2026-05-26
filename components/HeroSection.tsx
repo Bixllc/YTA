@@ -138,9 +138,9 @@ export default function HeroSection() {
           </p>
 
           <div className="hero-btns" style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-            <a href="#contact" className="btn-red-yta">
+            <button className="btn-red-yta" onClick={() => window.dispatchEvent(new CustomEvent("open-contact", { detail: { type: "general" } }))}>
               <span>Work With Us</span>
-            </a>
+            </button>
             <a
               href="#roster"
               style={{

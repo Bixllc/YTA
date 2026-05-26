@@ -49,14 +49,14 @@ export default function Navbar() {
         </ul>
 
         {/* CTA */}
-        <a
-          href="#contact"
+        <button
           className="hidden md:inline-block"
+          onClick={() => window.dispatchEvent(new CustomEvent("open-contact", { detail: { type: "general" } }))}
           style={{
             background: "var(--ink)", color: "#fff",
             padding: "11px 28px", fontSize: 12,
             letterSpacing: "0.1em", textTransform: "uppercase",
-            textDecoration: "none",
+            border: "none",
             transition: "background .2s, transform .2s",
             fontFamily: "var(--font-dm)",
           }}
@@ -64,7 +64,7 @@ export default function Navbar() {
           onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "var(--ink)"; (e.currentTarget as HTMLElement).style.transform = ""; }}
         >
           Contact Us
-        </a>
+        </button>
 
         {/* Hamburger */}
         <button
