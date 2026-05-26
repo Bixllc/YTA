@@ -216,18 +216,18 @@ export default function HeroSection() {
               position: "relative",
               overflow: "hidden",
               boxShadow:
-                "0 60px 100px rgba(0,0,0,0.28), 0 20px 40px rgba(0,0,0,0.18), 0 4px 12px rgba(0,0,0,0.12), inset 0 0 0 1.5px rgba(255,255,255,0.10)",
-              transform: "perspective(1400px) rotateY(-12deg) rotateX(3deg)",
-              transformStyle: "preserve-3d",
-              transition: "transform .6s cubic-bezier(.16,1,.3,1)",
+                "0 40px 80px rgba(0,0,0,0.20), 0 12px 32px rgba(0,0,0,0.12), inset 0 0 0 1.5px rgba(255,255,255,0.10)",
+              transition: "transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.transform =
-                "perspective(1400px) rotateY(-4deg) rotateX(1deg) translateY(-6px)";
+              (e.currentTarget as HTMLElement).style.transform = "translateY(-8px)";
+              (e.currentTarget as HTMLElement).style.boxShadow =
+                "0 56px 100px rgba(0,0,0,0.26), 0 20px 40px rgba(0,0,0,0.14), inset 0 0 0 1.5px rgba(255,255,255,0.10)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.transform =
-                "perspective(1400px) rotateY(-12deg) rotateX(3deg)";
+              (e.currentTarget as HTMLElement).style.transform = "";
+              (e.currentTarget as HTMLElement).style.boxShadow =
+                "0 40px 80px rgba(0,0,0,0.20), 0 12px 32px rgba(0,0,0,0.12), inset 0 0 0 1.5px rgba(255,255,255,0.10)";
             }}
           >
             {/* Slides */}
