@@ -84,15 +84,6 @@ export default function RosterSection() {
                 ))}
               </div>
 
-              <a
-                href={"mailto:" + t.email}
-                style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 13, color: "var(--mid)", textDecoration: "none", paddingTop: 28, borderTop: "1px solid var(--light-border)", transition: "color .2s", fontFamily: "var(--font-dm)" }}
-              >
-                <div style={{ width: 30, height: 30, borderRadius: "50%", background: "rgba(200,32,42,0.1)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, color: "var(--red)" }}>
-                  <EmailIcon />
-                </div>
-                {t.email}
-              </a>
             </div>
           ))}
         </div>

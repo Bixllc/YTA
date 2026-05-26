@@ -276,79 +276,9 @@ export default function HeroSection() {
               pointerEvents: "none",
             }} />
 
-            {/* Minimal creator identity — top left, very subtle */}
-            <div style={{
-              position: "absolute", top: 22, left: 20,
-              display: "flex", alignItems: "center", gap: 8,
-              zIndex: 11,
-            }}>
-              {/* Avatar dot */}
-              <div style={{
-                width: 28, height: 28, borderRadius: "50%",
-                background: "var(--red)",
-                border: "1.5px solid rgba(255,255,255,0.55)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                flexShrink: 0,
-              }}>
-                <span style={{ fontSize: 9, fontWeight: 700, color: "#fff", fontFamily: "var(--font-dm)", letterSpacing: "0.02em" }}>YT</span>
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 1 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
-                  <span style={{ fontSize: 11, fontWeight: 500, color: "rgba(255,255,255,0.88)", fontFamily: "var(--font-dm)", letterSpacing: "0.01em" }}>
-                    yngtlntagency
-                  </span>
-                  {/* Verified */}
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="10" fill="#3b9eff" opacity="0.9"/>
-                    <path d="M8 12l3 3 5-5" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <span style={{ fontSize: 10, color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-dm)" }}>
-                  Just now
-                </span>
-              </div>
-            </div>
 
-            {/* Bottom vignette + minimal branding */}
-            <div style={{
-              position: "absolute", bottom: 0, left: 0, right: 0,
-              padding: "80px 22px 26px",
-              background: "linear-gradient(to top, rgba(0,0,0,0.50) 0%, transparent 100%)",
-              zIndex: 10,
-              pointerEvents: "none",
-            }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <div style={{ width: 20, height: 1.5, background: "var(--red)", opacity: 0.85 }} />
-                <span style={{
-                  fontFamily: "var(--font-dm)",
-                  fontSize: 11,
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.55)",
-                }}>
-                  Creator Management
-                </span>
-              </div>
-            </div>
           </div>
 
-          {/* Floating social proof pill */}
-          <div style={{
-            marginTop: 18,
-            display: "flex", alignItems: "center", gap: 8,
-            padding: "9px 18px",
-            background: "rgba(255,255,255,0.9)",
-            backdropFilter: "blur(12px)",
-            border: "1px solid rgba(0,0,0,0.06)",
-            borderRadius: 100,
-            boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
-            width: "fit-content",
-          }}>
-            <div style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--red)" }} />
-            <span style={{ fontFamily: "var(--font-dm)", fontSize: 12, color: "var(--mid)", letterSpacing: "0.03em" }}>
-              9+ Brand Partners&nbsp;&nbsp;·&nbsp;&nbsp;45K+ Creator Reach
-            </span>
-          </div>
         </div>
 
       {/* Vertical red line */}
