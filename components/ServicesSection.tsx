@@ -12,7 +12,7 @@ const SERVICES = [
   {
     n: "03",
     title: "Brand & Contract Vetting",
-    desc: "Not every deal is a good deal. We review every partnership opportunity to ensure it aligns with your brand, protects your reputation, and includes fair terms. We look at compensation, usage rights, exclusivity clauses, and deliverables — so nothing catches you off guard.",
+    desc: "Not every deal is a good deal. We review every partnership opportunity to ensure it aligns with your brand, protects your reputation, and includes fair terms. We look at compensation, usage rights, exclusivity clauses, and deliverables so nothing catches you off guard.",
   },
 ];
 

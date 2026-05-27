@@ -136,8 +136,7 @@ export default function HeroSection() {
             fontWeight: 300,
           }}
         >
-          Young Talent Agency represents creators, managing the business side
-          of their brand so they can do what they do best, create.
+          Young Talent Agency represents creators, handling every business decision so they can stay focused on what they do best: create.
         </p>
 
         <div className="hero-btns" style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>

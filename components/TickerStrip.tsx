@@ -1,6 +1,6 @@
 const ITEMS = [
   "Brand Partnerships", "Deal Negotiation", "Contract Vetting",
-  "Creator Representation", "Athlete Management",
+  "Creator Representation",
 ];
 
 export default function TickerStrip() {
