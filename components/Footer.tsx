@@ -37,7 +37,7 @@ export default function Footer() {
       {/* Bottom row */}
       <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 8, borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: 20 }}>
         <p style={{ fontSize: 11, color: "rgba(255,255,255,.25)", letterSpacing: "0.05em", fontFamily: "var(--font-dm)" }}>
-          © 2025 Young Talent Agency. All rights reserved.
+          © 2026 Young Talent Agency. All rights reserved.
         </p>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4 }}>
           <p style={{ fontSize: 11, color: "rgba(255,255,255,.18)", fontFamily: "var(--font-dm)" }}>
