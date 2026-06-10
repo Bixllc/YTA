@@ -20,32 +20,8 @@ body {
   font-family: var(--font-dm), 'DM Sans', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
-  cursor: none;
 }
-h1, h2, h3, h4, h5, h6 { font-family: var(--font-bebas), sans-serif; font-weight: 400; }
-a, button { cursor: none; }
-
-/* ── CUSTOM CURSOR ── */
-#cur {
-  width: 10px; height: 10px;
-  background: var(--red);
-  border-radius: 50%;
-  position: fixed; pointer-events: none; z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width .18s, height .18s;
-  mix-blend-mode: multiply;
-}
-#cur-ring {
-  width: 38px; height: 38px;
-  border: 1.5px solid var(--red);
-  border-radius: 50%;
-  position: fixed; pointer-events: none; z-index: 9998;
-  transform: translate(-50%, -50%);
-  opacity: 0.45;
-  transition: width .2s, height .2s, opacity .2s;
-}
-body.hovering #cur { width: 22px; height: 22px; }
-body.hovering #cur-ring { width: 56px; height: 56px; opacity: 0.25; }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-dm), 'DM Sans', sans-serif; font-weight: 300; }
 
 /* ── SCROLL REVEAL ── */
 .reveal {
@@ -203,9 +179,3 @@ body.hovering #cur-ring { width: 56px; height: 56px; opacity: 0.25; }
   section { padding-left: 16px !important; padding-right: 16px !important; padding-top: 64px !important; padding-bottom: 64px !important; }
 }
 
-/* ── HIDE CUSTOM CURSOR ON TOUCH DEVICES ── */
-@media (hover: none) {
-  #cur, #cur-ring { display: none !important; }
-  body { cursor: auto; }
-  a, button { cursor: pointer; }
-}

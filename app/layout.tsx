@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Instrument_Serif, DM_Sans } from "next/font/google";
 import "./globals.css";
-import CustomCursor from "@/components/CustomCursor";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const bebas = Bebas_Neue({
@@ -91,7 +90,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className={`${bebas.variable} ${instrument.variable} ${dm.variable}`}>
-        <CustomCursor />
         <ScrollReveal />
         {children}
       </body>

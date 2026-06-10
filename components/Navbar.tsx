@@ -71,7 +71,7 @@ export default function Navbar() {
           className={`md:hidden nav-burger ${drawerOpen ? "open" : ""}`}
           onClick={() => setDrawerOpen((v) => !v)}
           aria-label="Toggle menu"
-          style={{ flexDirection: "column", justifyContent: "center", alignItems: "center", gap: 5, width: 40, height: 40, background: "none", border: "none", padding: 4, zIndex: 400 }}
+          style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: 5, width: 40, height: 40, background: "none", border: "none", padding: 4, position: "relative", zIndex: 400 }}
         >
           <span style={{ display: "block", width: 24, height: 2, background: "var(--ink)", borderRadius: 2, transition: "transform .3s, opacity .3s", transform: drawerOpen ? "translateY(7px) rotate(45deg)" : "" }} />
           <span style={{ display: "block", height: 2, background: "var(--ink)", borderRadius: 2, transition: "transform .3s, opacity .3s, width .3s", opacity: drawerOpen ? 0 : 1, width: drawerOpen ? 0 : 24 }} />
@@ -90,6 +90,20 @@ export default function Navbar() {
           padding: "80px 40px 40px",
         }}
       >
+        {/* Close button */}
+        <button
+          onClick={() => setDrawerOpen(false)}
+          aria-label="Close menu"
+          style={{
+            position: "absolute", top: 28, right: 20,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            width: 40, height: 40, background: "none", border: "none",
+            cursor: "pointer",
+          }}
+        >
+          <span style={{ display: "block", width: 24, height: 2, background: "var(--ink)", borderRadius: 2, transform: "rotate(45deg)", position: "absolute" }} />
+          <span style={{ display: "block", width: 24, height: 2, background: "var(--ink)", borderRadius: 2, transform: "rotate(-45deg)", position: "absolute" }} />
+        </button>
         <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
           {LINKS.map((l, i) => (
             <li key={l.label} style={{ width: "100%", borderBottom: "1px solid var(--light-border)", borderTop: i === 0 ? "1px solid var(--light-border)" : undefined }}>
