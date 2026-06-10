@@ -39,9 +39,20 @@ export default function Footer() {
         <p style={{ fontSize: 11, color: "rgba(255,255,255,.25)", letterSpacing: "0.05em", fontFamily: "var(--font-dm)" }}>
           © 2025 Young Talent Agency. All rights reserved.
         </p>
-        <p style={{ fontSize: 11, color: "rgba(255,255,255,.18)", fontFamily: "var(--font-dm)" }}>
-          Young Talent Agency is a division of Young Life Management LLC
-        </p>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4 }}>
+          <p style={{ fontSize: 11, color: "rgba(255,255,255,.18)", fontFamily: "var(--font-dm)" }}>
+            Young Talent Agency is a division of Young Life Management LLC
+          </p>
+          <p style={{ fontSize: 11, color: "rgba(255,255,255,.18)", fontFamily: "var(--font-dm)" }}>
+            Website by{" "}
+            <a href="https://bixllc.net" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,.35)", textDecoration: "none", transition: "color .2s" }}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#fff"}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,.35)"}
+            >
+              Bix LLC
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
