@@ -14,7 +14,7 @@ export default function AboutSection() {
           <p style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--red)", marginBottom: 18, fontFamily: "var(--font-dm)" }}>
             Who We Are
           </p>
-          <h2 style={{ fontFamily: "var(--font-bebas)", fontSize: "clamp(52px, 6vw, 86px)", lineHeight: 0.93, letterSpacing: "0.015em", marginBottom: 28, color: "var(--ink)" }}>
+          <h2 style={{ fontFamily: "var(--font-dm)", fontWeight: 300, fontSize: "clamp(42px, 5vw, 72px)", lineHeight: 1.1, letterSpacing: "-0.025em", marginBottom: 28, color: "var(--ink)" }}>
             In Your<br />Corner.
           </h2>
           <div style={{ width: 36, height: 3, background: "var(--red)", marginBottom: 32 }} />

@@ -11,7 +11,7 @@ export default function BrandsSection() {
         <p style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(200,32,42,0.9)", marginBottom: 18, fontFamily: "var(--font-dm)" }}>
           Partnerships
         </p>
-        <h2 style={{ fontFamily: "var(--font-bebas)", fontSize: "clamp(52px, 6vw, 86px)", lineHeight: 0.93, letterSpacing: "0.015em", color: "#fff" }}>
+        <h2 style={{ fontFamily: "var(--font-dm)", fontWeight: 300, fontSize: "clamp(42px, 5vw, 72px)", lineHeight: 1.1, letterSpacing: "-0.025em", color: "#fff" }}>
           Brands We&apos;ve<br />Worked With
         </h2>
       </div>

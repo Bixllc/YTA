@@ -142,7 +142,7 @@ export default function ContactModal() {
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
-            <h3 style={{ fontFamily: "var(--font-bebas)", fontSize: 32, letterSpacing: "0.04em", color: "var(--ink)", marginBottom: 12 }}>
+            <h3 style={{ fontFamily: "var(--font-dm)", fontWeight: 300, fontSize: 26, letterSpacing: "-0.02em", color: "var(--ink)", marginBottom: 12 }}>
               Message Sent
             </h3>
             <p style={{ fontSize: 14, color: "var(--mid)", lineHeight: 1.7, fontFamily: "var(--font-dm)", marginBottom: 32 }}>
@@ -166,7 +166,7 @@ export default function ContactModal() {
             <p style={{ fontSize: 11, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--red)", marginBottom: 10, fontFamily: "var(--font-dm)" }}>
               {type === "brand" ? "For Brands" : type === "talent" ? "For Talent" : "Get In Touch"}
             </p>
-            <h2 style={{ fontFamily: "var(--font-bebas)", fontSize: 38, letterSpacing: "0.03em", color: "var(--ink)", marginBottom: 36, lineHeight: 1 }}>
+            <h2 style={{ fontFamily: "var(--font-dm)", fontWeight: 300, fontSize: 32, letterSpacing: "-0.025em", color: "var(--ink)", marginBottom: 36, lineHeight: 1.1 }}>
               {cfg.title}
             </h2>
 

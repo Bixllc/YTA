@@ -34,7 +34,7 @@ export default function ServicesSection() {
             <p style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--red)", marginBottom: 18, fontFamily: "var(--font-dm)" }}>
               What We Do
             </p>
-            <h2 style={{ fontFamily: "var(--font-bebas)", fontSize: "clamp(52px, 6vw, 86px)", lineHeight: 0.93, letterSpacing: "0.015em", color: "var(--ink)" }}>
+            <h2 style={{ fontFamily: "var(--font-dm)", fontWeight: 300, fontSize: "clamp(42px, 5vw, 72px)", lineHeight: 1.1, letterSpacing: "-0.025em", color: "var(--ink)" }}>
               Our<br />Services
             </h2>
           </div>
@@ -58,7 +58,7 @@ export default function ServicesSection() {
                 {s.n}
               </span>
               <div>
-                <h3 style={{ fontFamily: "var(--font-bebas)", fontSize: 30, letterSpacing: "0.04em", color: "var(--ink)", marginBottom: 8 }}>
+                <h3 style={{ fontFamily: "var(--font-dm)", fontWeight: 300, fontSize: 22, letterSpacing: "-0.02em", color: "var(--ink)", marginBottom: 8 }}>
                   {s.title}
                 </h3>
                 <p style={{ fontSize: 14, lineHeight: 1.65, color: "var(--mid)", maxWidth: "min(580px, 100%)", fontFamily: "var(--font-dm)" }}>
